@@ -1,0 +1,280 @@
+#!/bin/bash
+
+set -e
+
+if [ $EUID -ne 0 ]; then
+    echo "run as root"
+    exit 1
+fi
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+BASICS='
+    ack-grep
+    acpi
+    apt-file
+    autossh
+    checkinstall
+    curl
+    dos2unix
+    git
+    gnupg
+    htop
+    less
+    lftp
+    ncdu
+    p7zip-full
+    par
+    recode
+    scrot
+    tmux
+    tree
+    unzip
+    vim
+    wget
+    xz-utils
+    zip
+'
+
+DESKTOP='
+    baobab
+    catfish
+    chromium-browser
+    clipit
+    file-roller
+    firefox
+    fonts-dejavu
+    fonts-droid
+    gitg
+    gnome-system-monitor
+    gnuplot
+    gparted
+    keepassx
+    lxappearance
+    lxrandr
+    mysql-workbench
+    network-manager
+    network-manager-openvpn
+    nitrogen
+    onboard
+    openbox
+    roxterm
+    slim
+    suckless-tools
+    synaptic
+    thunar
+    thunderbird
+    tint2
+    ttf-ubuntu-font-family
+    ubuntu-restricted-addons
+    ubuntu-restricted-extras
+    ubuntu-standard
+    virtualbox
+    xfce4-notifyd
+    xfce4-screenshooter
+    xfce4-volumed
+    xfonts-terminus
+    xorg
+    xzoom
+'
+
+AV='
+    alsa-utils
+    audacious
+    audacity
+    cheese
+    ffmpeg
+    pulseaudio
+    vlc
+'
+
+NATIVE='
+    autoconf
+    automake
+    bison
+    build-essential
+    cmake
+    exuberant-ctags
+    flex
+    g++
+    gcc
+    gdb
+    libstdc++-5-doc
+    kdbg
+    m4
+    make
+    nasm
+    patch
+    wxhexeditor
+'
+
+PYTHON='
+    ipython
+    ipython3
+    python
+    python-crypto
+    python-numpy
+    python-pip
+    python-scipy
+    python-virtualenv
+    python3
+    python3
+    python3-cryptography
+    python3-pep8
+    python3-virtualenv
+'
+
+GOLANG='
+    golang
+'
+
+HASKELL='
+    haskell-platform
+    haskell-stack
+'
+
+JAVA='
+    java-common
+    eclipse
+'
+
+AVR='
+    avr-libc
+    avrdude
+    binutils-avr
+    gcc-avr
+    gdb-avr
+    minicom
+'
+
+NET='
+    aircrack-ng
+    cifs-utils
+    filezilla
+    gigolo
+    iperf3
+    nmap
+    openvpn
+    pidgin
+    pidgin-otr
+    proxychains
+    rdesktop
+    remmina
+    smbclient
+    tcpdump
+    transmission
+    tshark
+    vinagre
+    weechat
+    wireshark
+    youtube-dl
+'
+
+GFX='
+    dia
+    gimp
+    gpick
+    imagemagick
+    inkscape
+    krita
+    ristretto
+'
+
+GFX3D='
+    blender
+    openscad
+    freecad
+'
+
+OFFICE='
+    libreoffice
+    gnome-calculator
+    mupdf
+    okular
+'
+
+TEX='
+    texlive-full
+    qtikz
+    pdf2svg
+'
+
+get_key() {
+    apt-key adv --keyserver 'hkp://keyserver.ubuntu.com' --recv-keys "$(echo -n $1 | tr -d ' ')"
+}
+
+get_key '22C4 8501 4660 3F3D B0ED  0047 9DA4 BD18 B9A0 6DE3'
+echo 'deb http://ppa.launchpad.net/inkscape.dev/stable/ubuntu wily main'            > /etc/apt/sources.list.d/inkscape.list
+
+get_key '5796 09E5 8FE5 5DE5 4304  8AF8 7841 4460 095F 1873'
+echo 'deb http://ppa.launchpad.net/keepassx/daily/ubuntu wily main'                 > /etc/apt/sources.list.d/keepassx.list
+
+get_key 'FB97 E9C3 A97F 85C0 95AE  A790 3BDA AC08 614C 4B38'
+echo 'deb http://ppa.launchpad.net/otto-kesselgulasch/gimp-edge/ubuntu wily main'   > /etc/apt/sources.list.d/gimp.list
+
+get_key '22C4 8501 4660 3F3D B0ED  0047 9DA4 BD18 B9A0 6DE3'
+echo 'deb http://download.virtualbox.org/virtualbox/debian wily contrib'            > /etc/apt/sources.list.d/virtualbox.list
+
+apt-get update
+apt-get -u dist-upgrade
+apt-get -y install \
+    $BASICS        \
+    $DESKTOP       \
+    $AV            \
+    $NATIVE        \
+    $PYTHON        \
+    $GOLANG        \
+    $HASKELL       \
+    $JAVA          \
+    $AVR           \
+    $NET           \
+    $GFX           \
+    $GFX3D         \
+    $OFFICE        \
+    $TEX           \
+
+
+# ------------------------------------------------------------ bspwm
+
+apt-get -y install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev \
+                   libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev \
+                   libasound2-dev
+
+git clone 'https://github.com/baskerville/bspwm.git' '/usr/local/src/bspwm'
+pushd '/usr/local/src/bspwm'
+make
+checkinstall -y
+cp '/usr/local/src/contrib/freedesktop/bspwm.desktop' '/usr/share/xsessions/'
+popd
+
+git clone 'https://github.com/baskerville/sxhkd.git' '/usr/local/src/sxhkd'
+pushd '/usr/local/src/sxhkd'
+make
+checkinstall -y
+popd
+
+
+# ------------------------------------------------------------ i3lock
+
+apt-get -y build-dep i3lock
+
+git clone 'https://github.com/Lixxia/i3lock' '/usr/local/src/i3lock'
+pushd '/usr/local/src/i3lock'
+make
+checkinstall -y
+popd
+
+
+# ------------------------------------------------------------ grub
+
+sed 's/splash/consoleblank=0/' -i /etc/default/grub
+
+
+# ------------------------------------------------------------ configs
+
+cp "$DIR/system/locale"        '/etc/default/locale'
+cp "$DIR/system/keyboard"      '/etc/default/keyboard'
+cp "$DIR/system/console-setup" '/etc/default/console-setup'
+
+mkdir -p '/etc/X11/xorg.conf.d'
+cp "$DIR/system/51-mouse.conf" '/etc/X11/xorg.conf.d/51-mouse.conf'

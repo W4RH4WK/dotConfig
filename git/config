@@ -1,0 +1,32 @@
+[user]
+    name = Alex Hirsch
+    email = w4rh4wk@bluephoenix.at
+[github]
+    user = w4rh4wk
+[alias]
+    c = checkout
+    d = diff
+    ds = diff --staged
+    l = log --all --graph --oneline --decorate
+    s = status --short --branch
+    g = grep --break --heading --line-number
+    ff = merge --ff-only
+    pff = pull --ff-only
+    mnc = merge --no-ff --no-commit
+    ignore = update-index --assume-unchanged
+    unignore = update-index --no-assume-unchanged
+    ignored = !git ls-files -v | grep '^[[:lower:]]'
+[color]
+    ui = true
+[core]
+    editor = vim
+    pager = less -+FX
+[http]
+    postBuffer = 524288000
+[rerere]
+    enabled = true
+[push]
+    default = simple
+[grep]
+    extendRegexp = true
+    lineNumber = true

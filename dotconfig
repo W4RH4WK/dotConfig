@@ -1,0 +1,81 @@
+#!/bin/bash
+
+set -e
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+usage() {
+    echo "Usage: $0 [pull | push] <PROGRAM | all>"
+    echo
+    echo "  PROGRAM:"
+    echo "      bash"
+    echo "      firefox"
+    echo "      git"
+    echo "      htop"
+    echo "      roxterm"
+    echo
+}
+
+config_bash() {
+    mkdir -p "$DIR/bash"
+    copy "$HOME/.bashrc"       "$DIR/bash/bashrc"
+    copy "$HOME/.bash_aliases" "$DIR/bash/aliases"
+    copy "$HOME/.bash_path"    "$DIR/bash/path"
+    copy "$HOME/.bash_prompt"  "$DIR/bash/prompt"
+}
+
+config_firefox() {
+    local FFPROFILE="$HOME/.mozilla/firefox/w4rh4wk.default"
+    mkdir -p "$FFPROFILE" "$DIR/firefox"
+    copy "$FFPROFILE/../profiles.ini" "$DIR/firefox/profiles.ini"
+    copy "$FFPROFILE/user.js"         "$DIR/firefox/user.js"
+    copy "$FFPROFILE/prefs.js"        "$DIR/firefox/prefs.js"
+
+    # remove some noise
+    sed '/lastupdatetime/d'                  -i "$DIR/firefox/prefs.js"
+    sed '/nextupdatetime/d'                  -i "$DIR/firefox/prefs.js"
+    sed '/browser.slowStartup.averageTime/d' -i "$DIR/firefox/prefs.js"
+    sed '/browser.slowStartup.samples/d'     -i "$DIR/firefox/prefs.js"
+    sed '/toolkit.startup.last_success/d'    -i "$DIR/firefox/prefs.js"
+    sed '/extensions.bootstrappedAddons/d'   -i "$DIR/firefox/prefs.js"
+    sed '/extensions.enabledAddons/d'        -i "$DIR/firefox/prefs.js"
+}
+
+config_git() {
+    mkdir -p "$DIR/git"
+    copy "$HOME/.gitconfig" "$DIR/git/config"
+    sed '/token = /d' -i "$DIR/git/config"
+}
+
+config_htop() {
+    copy "$HOME/.config/htop" "$DIR/htop"
+}
+
+config_roxterm() {
+    copy "$HOME/.config/roxterm.sourceforge.net" "$DIR/roxterm"
+}
+
+config_all() {
+    config_bash
+    config_firefox
+    config_git
+    config_htop
+    config_roxterm
+}
+
+if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
+    usage
+    exit 1
+else
+    if [[ "$1" == "pull" ]]; then
+        copy() {
+            cp -r -T "$1" "$2"
+        }
+    else
+        copy() {
+            cp -i -r -T "$2" "$1"
+        }
+    fi
+fi
+
+"config_$2"

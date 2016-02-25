@@ -1,0 +1,24 @@
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
+# home bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# go
+#export GOROOT="$HOME/.goroot/go1.4"
+export GOPATH="$HOME/go"
+#export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+
+# cabal
+export PATH="$HOME/.cabal/bin:$PATH"
+
+# node version manager
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# ruby version manager
+#export PATH="$PATH:$HOME/.rvm/bin"
+
+# ruby gems
+#export GEM_DIR="$(ruby -rubygems -e 'puts Gem.user_dir')"
+#export PATH="$PATH:$GEM_DIR/bin"
+

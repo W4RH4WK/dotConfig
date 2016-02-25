@@ -1,0 +1,13 @@
+NC='\[\e[0m\]'
+Black='\[\e[1;30m\]'
+Red='\[\e[1;31m\]'
+Green='\[\e[1;32m\]'
+Yellow='\[\e[1;33m\]'
+Blue='\[\e[1;34m\]'
+Purple='\[\e[1;35m\]'
+Cyan='\[\e[1;36m\]'
+White='\[\e[1;37m\]'
+
+PROMPT_DIRTRIM=2
+PS1="$Blue\w$Cyan\$(__git_ps1)$Green > $NC"
+PS2="$Green> $NC"

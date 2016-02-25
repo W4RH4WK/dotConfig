@@ -1,0 +1,4 @@
+[roxterm options]
+colour_scheme=Molokai
+prefer_dark_theme=0
+warn_close=1
