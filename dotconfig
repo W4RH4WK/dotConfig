@@ -12,16 +12,18 @@ usage() {
     echo "      firefox"
     echo "      git"
     echo "      htop"
+    echo "      onboard"
     echo "      roxterm"
     echo
 }
 
 config_bash() {
     mkdir -p "$DIR/bash"
-    copy "$HOME/.bashrc"       "$DIR/bash/bashrc"
     copy "$HOME/.bash_aliases" "$DIR/bash/aliases"
     copy "$HOME/.bash_path"    "$DIR/bash/path"
     copy "$HOME/.bash_prompt"  "$DIR/bash/prompt"
+    copy "$HOME/.bashrc"       "$DIR/bash/bashrc"
+    copy "$HOME/.profile"      "$DIR/bash/profile"
 }
 
 config_firefox() {
@@ -32,13 +34,21 @@ config_firefox() {
     copy "$FFPROFILE/prefs.js"        "$DIR/firefox/prefs.js"
 
     # remove some noise
-    sed '/lastupdatetime/d'                  -i "$DIR/firefox/prefs.js"
-    sed '/nextupdatetime/d'                  -i "$DIR/firefox/prefs.js"
+    sed '/app.update.lastUpdateTime/d'       -i "$DIR/firefox/prefs.js"
+    sed '/browser.open.lastDir/d'            -i "$DIR/firefox/prefs.js"
     sed '/browser.slowStartup.averageTime/d' -i "$DIR/firefox/prefs.js"
     sed '/browser.slowStartup.samples/d'     -i "$DIR/firefox/prefs.js"
-    sed '/toolkit.startup.last_success/d'    -i "$DIR/firefox/prefs.js"
     sed '/extensions.bootstrappedAddons/d'   -i "$DIR/firefox/prefs.js"
     sed '/extensions.enabledAddons/d'        -i "$DIR/firefox/prefs.js"
+    sed '/extensions.xpiState/d'             -i "$DIR/firefox/prefs.js"
+    sed '/lastDailyNotification/d'           -i "$DIR/firefox/prefs.js"
+    sed '/lastupdatetime/d'                  -i "$DIR/firefox/prefs.js"
+    sed '/nextupdatetime/d'                  -i "$DIR/firefox/prefs.js"
+    sed '/pingCountTotal/d'                  -i "$DIR/firefox/prefs.js"
+    sed '/pingCountVersion/d'                -i "$DIR/firefox/prefs.js"
+    sed '/print/d'                           -i "$DIR/firefox/prefs.js"
+    sed '/storage.vacuum.last.index/d'       -i "$DIR/firefox/prefs.js"
+    sed '/toolkit.startup.last_success/d'    -i "$DIR/firefox/prefs.js"
 }
 
 config_git() {
@@ -51,16 +61,25 @@ config_htop() {
     copy "$HOME/.config/htop" "$DIR/htop"
 }
 
+config_onboard() {
+    if [[ "$1" == "pull" ]]; then
+        dconf dump /org/onboard/ > "$DIR/onboard/settings"
+    else
+        dconf load /org/onboard/ < "$DIR/onboard/settings"
+    fi
+}
+
 config_roxterm() {
     copy "$HOME/.config/roxterm.sourceforge.net" "$DIR/roxterm"
 }
 
 config_all() {
-    config_bash
-    config_firefox
-    config_git
-    config_htop
-    config_roxterm
+    config_bash "$1"
+    config_firefox "$1"
+    config_git "$1"
+    config_htop "$1"
+    config_onboard "$1"
+    config_roxterm "$1"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
@@ -78,4 +97,4 @@ else
     fi
 fi
 
-"config_$2"
+"config_$2" "$1"

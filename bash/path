@@ -1,4 +1,4 @@
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 # home bin
 export PATH="$HOME/.local/bin:$PATH"
@@ -21,4 +21,3 @@ export PATH="$HOME/.cabal/bin:$PATH"
 # ruby gems
 #export GEM_DIR="$(ruby -rubygems -e 'puts Gem.user_dir')"
 #export PATH="$PATH:$GEM_DIR/bin"
-

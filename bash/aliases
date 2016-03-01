@@ -12,8 +12,9 @@ ffind() {
 
 export LS_OPTIONS="--classify --color=force --group-directories-first --human-readable"
 alias ls="ls $LS_OPTIONS"
-alias ll="ls -al"
-alias l="ls -l"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -lF'
 
 alias ack="ack -r --smart-case --follow"
 alias tree="tree -F --dirsfirst"

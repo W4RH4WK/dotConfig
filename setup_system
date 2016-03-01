@@ -41,6 +41,7 @@ DESKTOP='
     catfish
     chromium-browser
     clipit
+    dconf-cli
     file-roller
     firefox
     fonts-dejavu
@@ -49,6 +50,7 @@ DESKTOP='
     gnome-system-monitor
     gnuplot
     gparted
+    indicator-sound-switcher
     keepassx
     lxappearance
     lxrandr
@@ -91,6 +93,7 @@ AV='
 NATIVE='
     autoconf
     automake
+    binutils
     bison
     build-essential
     cmake
@@ -99,6 +102,7 @@ NATIVE='
     g++
     gcc
     gdb
+    hexer
     libstdc++-5-doc
     kdbg
     m4
@@ -212,8 +216,14 @@ echo 'deb http://ppa.launchpad.net/keepassx/daily/ubuntu wily main'             
 get_key 'FB97 E9C3 A97F 85C0 95AE  A790 3BDA AC08 614C 4B38'
 echo 'deb http://ppa.launchpad.net/otto-kesselgulasch/gimp-edge/ubuntu wily main'   > /etc/apt/sources.list.d/gimp.list
 
+get_key '4358 71A8 9FE2 304D 4325  4F38 66EF E2D5 82CE 5D8A'
+echo 'deb http://ppa.launchpad.net/yktooo/ppa/ubuntu wily main'                     > /etc/apt/sources.list.d/sound-switcher.list
+
 get_key '22C4 8501 4660 3F3D B0ED  0047 9DA4 BD18 B9A0 6DE3'
 echo 'deb http://download.virtualbox.org/virtualbox/debian wily contrib'            > /etc/apt/sources.list.d/virtualbox.list
+
+get_key 'C570 5533 DA4F 78D8 664B  5DC0 5751 5968 9BEF B442'
+echo 'deb http://download.fpcomplete.com/ubuntu wily main'                          > /etc/apt/sources.list.d/haskell-stack.list
 
 apt-get update
 apt-get -u dist-upgrade
@@ -234,47 +244,28 @@ apt-get -y install \
     $TEX           \
 
 
-# ------------------------------------------------------------ bspwm
-
-apt-get -y install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev \
-                   libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev \
-                   libasound2-dev
-
-git clone 'https://github.com/baskerville/bspwm.git' '/usr/local/src/bspwm'
-pushd '/usr/local/src/bspwm'
-make
-checkinstall -y
-cp '/usr/local/src/contrib/freedesktop/bspwm.desktop' '/usr/share/xsessions/'
-popd
-
-git clone 'https://github.com/baskerville/sxhkd.git' '/usr/local/src/sxhkd'
-pushd '/usr/local/src/sxhkd'
-make
-checkinstall -y
-popd
-
-
-# ------------------------------------------------------------ i3lock
-
-apt-get -y build-dep i3lock
-
-git clone 'https://github.com/Lixxia/i3lock' '/usr/local/src/i3lock'
-pushd '/usr/local/src/i3lock'
-make
-checkinstall -y
-popd
-
-
 # ------------------------------------------------------------ grub
 
 sed 's/splash/consoleblank=0/' -i /etc/default/grub
+sed 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=640x480/' -i /etc/default/grub
+
+
+# ------------------------------------------------------------ slim
+
+sed 's/^login_cmd/# login_cmd/' -i /etc/slim.conf
+sed 's/debian-lines/default/'   -i /etc/slim.conf
+cat >> /etc/slim.conf << EOF
+# login command
+login_cmd exec /bin/bash -login ~/.xinitrc %session
+EOF
 
 
 # ------------------------------------------------------------ configs
 
-cp "$DIR/system/locale"        '/etc/default/locale'
-cp "$DIR/system/keyboard"      '/etc/default/keyboard'
-cp "$DIR/system/console-setup" '/etc/default/console-setup'
+cp "$DIR/system/locale"        '/etc/default/'
+cp "$DIR/system/keyboard"      '/etc/default/'
+cp "$DIR/system/console-setup" '/etc/default/'
 
 mkdir -p '/etc/X11/xorg.conf.d'
-cp "$DIR/system/51-mouse.conf" '/etc/X11/xorg.conf.d/51-mouse.conf'
+cp "$DIR/system/51-mouse.conf"    '/etc/X11/xorg.conf.d/'
+cp "$DIR/system/50-touchpad.conf" '/etc/X11/xorg.conf.d/'

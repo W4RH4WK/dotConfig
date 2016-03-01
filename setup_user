@@ -3,6 +3,7 @@
 mkdir -p               \
     "$HOME/.config"    \
     "$HOME/.local/bin" \
+    "$HOME/.local/src" \
     "$HOME/Desktop"    \
     "$HOME/Documents"  \
     "$HOME/Downloads"  \
@@ -12,22 +13,24 @@ mkdir -p               \
     "$HOME/Templates"  \
     "$HOME/Videos"     \
 
+touch "$HOME/.hushlogin"
 
 # ------------------------------------------------------------ firefox
 
 declare -A FF_ADDONS
 FF_ADDONS=(
-    ['activate_per_element']='https://addons.mozilla.org/firefox/downloads/latest/457553/addon-457553-latest.xpi'
-    ['cert_patrol.xpi']='https://addons.mozilla.org/firefox/downloads/latest/6415/addon-6415-latest.xpi'
-    ['dev_theme.xpi']='https://addons.mozilla.org/firefox/downloads/latest/642786/addon-642786-latest.xpi'
-    ['ghostery.xpi']='https://addons.mozilla.org/firefox/downloads/latest/9609/addon-9609-latest.xpi'
-    ['google_link_fix.xpi']='https://addons.mozilla.org/firefox/downloads/latest/351740/addon-351740-latest.xpi'
-    ['https_everywhere.xpi']='https://addons.mozilla.org/firefox/downloads/latest/229918/addon-229918-latest.xpi'
-    ['ublock_origin.xpi']='https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi'
+    ['activate_per_element']='https://addons.mozilla.org/firefox/downloads/latest/457553'
+    ['cert_patrol']='https://addons.mozilla.org/firefox/downloads/latest/6415'
+    ['dev_theme']='https://addons.mozilla.org/firefox/downloads/latest/642786'
+    ['foxyproxy']='https://addons.mozilla.org/firefox/downloads/file/400263'
+    ['ghostery']='https://addons.mozilla.org/firefox/downloads/latest/9609'
+    ['google_link_fix']='https://addons.mozilla.org/firefox/downloads/latest/351740'
+    ['https_everywhere']='https://addons.mozilla.org/firefox/downloads/latest/229918'
+    ['ublock_origin']='https://addons.mozilla.org/firefox/downloads/latest/607454'
 )
 mkdir -p "$HOME/Desktop/ff_addons"
 for name in ${!FF_ADDONS[@]}; do
-    wget -O "$HOME/Desktop/ff_addons/$name" "${FF_ADDONS[$name]}"
+    wget -O "$HOME/Desktop/ff_addons/$name.xpi" "${FF_ADDONS[$name]}"
 done
 
 
@@ -35,14 +38,14 @@ done
 
 declare -A TB_ADDONS
 TB_ADDONS=(
-    ['allow_html_temp.xpi']='https://addons.mozilla.org/thunderbird/downloads/latest/1556/addon-1556-latest.xpi'
-    ['enigmail.xpi']='https://addons.mozilla.org/thunderbird/downloads/latest/71/addon-71-latest.xpi'
-    ['lightning']='https://addons.mozilla.org/thunderbird/downloads/latest/2313/platform:2/addon-2313-latest.xpi'
-    ['manually_sort_folders.xpi']='https://addons.mozilla.org/thunderbird/downloads/latest/15102/addon-15102-latest.xpi'
+    ['allow_html_temp']='https://addons.mozilla.org/thunderbird/downloads/latest/1556'
+    ['enigmail']='https://addons.mozilla.org/thunderbird/downloads/latest/71'
+    ['lightning']='https://addons.mozilla.org/thunderbird/downloads/latest/2313'
+    ['manually_sort_folders']='https://addons.mozilla.org/thunderbird/downloads/latest/15102'
 )
 mkdir -p "$HOME/Desktop/tb_addons"
 for name in ${!TB_ADDONS[@]}; do
-    wget -O "$HOME/Desktop/tb_addons/$name" "${TB_ADDONS[$name]}"
+    wget -O "$HOME/Desktop/tb_addons/$name.xpi" "${TB_ADDONS[$name]}"
 done
 
 
@@ -60,3 +63,30 @@ cabal install pandoc pandoc-filter
 # ------------------------------------------------------------ git completion
 
 wget -O "$HOME/.config/git-completion.bash" 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
+
+
+# ------------------------------------------------------------ bspwm
+
+apt-get -y install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev \
+                   libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev \
+                   libasound2-dev
+
+git clone 'https://github.com/baskerville/bspwm.git' "$HOME/.local/src/bspwm"
+pushd "$HOME/.local/src/bspwm"
+make
+popd
+
+git clone 'https://github.com/baskerville/sxhkd.git' "$HOME/.local/src/sxhkd"
+pushd "$HOME/.local/src/sxhkd"
+make
+popd
+
+
+# ------------------------------------------------------------ i3lock
+
+apt-get -y build-dep i3lock
+
+git clone 'https://github.com/Lixxia/i3lock' "$HOME/.local/src/i3lock"
+pushd "$HOME/.local/src/i3lock"
+make
+popd
