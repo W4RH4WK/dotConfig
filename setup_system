@@ -97,6 +97,7 @@ NATIVE='
     bison
     build-essential
     cmake
+    dos2unix
     exuberant-ctags
     flex
     g++
