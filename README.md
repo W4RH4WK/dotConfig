@@ -1,3 +1,3 @@
-# dotConfig - W4RH4WK
+# dotConfig --- W4RH4WK
 
 *Work In Progress*
