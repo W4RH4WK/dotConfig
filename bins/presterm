@@ -1,0 +1,3 @@
+#!/bin/bash
+
+PRES=1 roxterm -p 'Pres' -c 'Solarized_Light'

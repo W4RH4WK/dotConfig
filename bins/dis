@@ -1,0 +1,56 @@
+#!/bin/bash
+
+usage() {
+    echo "Usage: $0 <single | home | work | project>"
+    echo
+}
+
+if [[ $# -ne 1 ]]; then
+    usage
+    exit 1
+fi
+
+case "$1" in
+
+    single)
+        xrandr --output LVDS1 --mode 1366x768  --primary \
+               --output HDMI1 --off \
+               --output VGA1  --off
+        sleep 1
+        xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s HDMI1
+        xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s LVDS1
+        xset m 3 1
+        ;;
+
+    home)
+        xrandr --output LVDS1 --off \
+               --output HDMI1 --mode 1920x1080 \
+               --output VGA1  --mode 1920x1080
+        sleep 5
+        xrandr --output HDMI1 --primary --right-of VGA1
+        sleep 1
+        xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s LVDS1
+        xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s HDMI1
+        xset m 2 1
+        ;;
+
+    work)
+        xrandr --newmode "2560x1440_42.00"  212.12  2560 2720 2992 3424  1440 1441 1444 1475  -HSync +Vsync
+        xrandr --addmode HDMI1 '2560x1440_42.00'
+        xrandr --output LVDS1 --mode 1366x768 \
+               --output HDMI1 --mode '2560x1440_42.00' --right-of LVDS1 --primary
+        xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s LVDS1
+        xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s HDMI1
+        xset m 1 1
+        ;;
+
+    project)
+        xrandr --addmode VGA1 '1280x720'
+        xrandr --output VGA1 --same-as LVDS1 --mode 1280x720
+        ;;
+
+    *)
+        usage
+        exit 1
+
+esac

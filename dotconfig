@@ -5,10 +5,11 @@ set -e
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 usage() {
-    echo "Usage: $0 [pull | push] <PROGRAM | all>"
+    echo "Usage: $0 <pull | push> <PROGRAM | all>"
     echo
     echo "  PROGRAM:"
     echo "      bash"
+    echo "      bins"
     echo "      firefox"
     echo "      git"
     echo "      htop"
@@ -24,6 +25,16 @@ config_bash() {
     copy "$HOME/.bash_prompt"  "$DIR/bash/prompt"
     copy "$HOME/.bashrc"       "$DIR/bash/bashrc"
     copy "$HOME/.profile"      "$DIR/bash/profile"
+}
+
+config_bins() {
+    mkdir -p "$HOME/.local/bin" "$DIR/bins"
+    copy "$HOME/.local/bin/colortheme"     "$DIR/bins/colortheme"
+    copy "$HOME/.local/bin/dis"            "$DIR/bins/dis"
+    copy "$HOME/.local/bin/open"           "$DIR/bins/open"
+    copy "$HOME/.local/bin/pandoc_exec"    "$DIR/bins/pandoc_exec"
+    copy "$HOME/.local/bin/pandoc_include" "$DIR/bins/pandoc_include"
+    copy "$HOME/.local/bin/presterm"       "$DIR/bins/presterm"
 }
 
 config_firefox() {
@@ -82,6 +93,7 @@ config_roxterm() {
 
 config_all() {
     config_bash "$1"
+    config_bins "$1"
     config_firefox "$1"
     config_git "$1"
     config_htop "$1"
