@@ -145,6 +145,7 @@ JAVA='
 '
 
 AVR='
+    arduino
     avr-libc
     avrdude
     binutils-avr
@@ -248,18 +249,8 @@ apt-get -y install \
 
 # ------------------------------------------------------------ grub
 
-sed 's/splash/consoleblank=0/' -i /etc/default/grub
+sed 's/splash/consoleblank=0/'                      -i /etc/default/grub
 sed 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=640x480/' -i /etc/default/grub
-
-
-# ------------------------------------------------------------ slim
-
-sed 's/^login_cmd/# login_cmd/' -i /etc/slim.conf
-sed 's/debian-lines/default/'   -i /etc/slim.conf
-cat >> /etc/slim.conf << EOF
-# login command
-login_cmd exec /bin/bash -login ~/.xinitrc %session
-EOF
 
 
 # ------------------------------------------------------------ configs
@@ -267,6 +258,7 @@ EOF
 cp "$DIR/system/locale"        '/etc/default/'
 cp "$DIR/system/keyboard"      '/etc/default/'
 cp "$DIR/system/console-setup" '/etc/default/'
+cp "$DIR/system/slim.conf"     '/etc/slim.conf'
 
 mkdir -p '/etc/X11/xorg.conf.d'
 cp "$DIR/system/50-touchpad.conf" '/etc/X11/xorg.conf.d/'
