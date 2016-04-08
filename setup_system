@@ -2,7 +2,7 @@
 
 set -e
 
-if [ $EUID -ne 0 ]; then
+if [[ $EUID -ne 0 ]]; then
     echo "run as root"
     exit 1
 fi
@@ -141,6 +141,7 @@ HASKELL='
 JAVA='
     java-common
     eclipse
+    eclipse-cdt
 '
 
 AVR='
@@ -268,5 +269,4 @@ cp "$DIR/system/keyboard"      '/etc/default/'
 cp "$DIR/system/console-setup" '/etc/default/'
 
 mkdir -p '/etc/X11/xorg.conf.d'
-cp "$DIR/system/51-mouse.conf"    '/etc/X11/xorg.conf.d/'
 cp "$DIR/system/50-touchpad.conf" '/etc/X11/xorg.conf.d/'
