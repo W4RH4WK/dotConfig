@@ -8,6 +8,12 @@ Purple='\[\e[1;35m\]'
 Cyan='\[\e[1;36m\]'
 White='\[\e[1;37m\]'
 
+__ret_ps1() {
+    if [[ $1 != 0 ]]; then
+        echo -n "$1 "
+    fi
+}
+
 PROMPT_DIRTRIM=2
-PS1="$Blue\w$Cyan\$(__git_ps1)$Green > $NC"
+PS1="$Red\$(__ret_ps1 \$?)$Blue\w$Cyan\$(__git_ps1)$Green > $NC"
 PS2="$Green> $NC"
