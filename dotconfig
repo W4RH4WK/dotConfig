@@ -95,6 +95,7 @@ config_onboard() {
 
 config_roxterm() {
     copy "$HOME/.config/roxterm.sourceforge.net" "$DIR/roxterm"
+    rm -f "$DIR/roxterm/Searches"
 }
 
 config_all() {
