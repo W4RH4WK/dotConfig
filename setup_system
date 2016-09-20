@@ -62,10 +62,10 @@ DESKTOP='
     nitrogen
     onboard
     openbox
-    roxterm
     slim
     suckless-tools
     synaptic
+    terminator
     thunar
     thunderbird
     tint2

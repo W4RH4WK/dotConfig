@@ -14,7 +14,7 @@ usage() {
     echo "      git"
     echo "      htop"
     echo "      onboard"
-    echo "      roxterm"
+    echo "      terminator"
     echo
 }
 
@@ -93,9 +93,8 @@ config_onboard() {
     fi
 }
 
-config_roxterm() {
-    copy "$HOME/.config/roxterm.sourceforge.net" "$DIR/roxterm"
-    rm -f "$DIR/roxterm/Searches"
+config_terminator() {
+    copy "$HOME/.config/terminator" "$DIR/terminator"
 }
 
 config_all() {
@@ -105,7 +104,7 @@ config_all() {
     config_git "$1"
     config_htop "$1"
     config_onboard "$1"
-    config_roxterm "$1"
+    config_terminator "$1"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
