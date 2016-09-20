@@ -41,6 +41,10 @@ DESKTOP='
     catfish
     chromium-browser
     clipit
+    connman
+    connman-doc
+    connman-ui
+    connman-vpn
     dconf-cli
     file-roller
     firefox
@@ -55,8 +59,6 @@ DESKTOP='
     lxappearance
     lxrandr
     mysql-workbench
-    network-manager
-    network-manager-openvpn
     nitrogen
     onboard
     openbox
