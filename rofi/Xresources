@@ -1,0 +1,17 @@
+rofi.font: Hack 14
+rofi.width: 40
+rofi.lines: 8
+rofi.columns: 1
+rofi.opacity: 90
+rofi.color-enabled: true
+rofi.color-normal: #263238, #eeffff, #263238, #00aaff, #eeffff
+rofi.color-urgent: #263238, #eeffff, #263238, #00aaff, #eeffff
+rofi.color-active: #263238, #eeffff, #263238, #00aaff, #eeffff
+rofi.color-window: #263238, #00aaff, #00aaff
+rofi.bw: 4
+rofi.location: 0
+rofi.padding: 10
+rofi.fuzzy: false
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.auto-select: false

@@ -1,32 +1,94 @@
 [[ $- != *i* ]] && return
 
+# ------------------------------------------------------------ HISTORY
+HISTCONTROL=ignoreboth
 HISTSIZE=10000
+shopt -s histappend
 export PROMPT_COMMAND="history -a"
 
+# ------------------------------------------------------------ BASIC
+shopt -s checkwinsize
+shopt -s globstar
+
+# ------------------------------------------------------------ EDITOR
 export EDITOR=/usr/bin/vim
 
-if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
+# ------------------------------------------------------------ PROMPT
+__ret_ps1() {
+	if [[ $1 != 0 ]]; then
+		echo -n "$1 "
+	fi
+}
+
+NC='\[\e[0m\]'
+Black='\[\e[1;30m\]'
+Red='\[\e[1;31m\]'
+Green='\[\e[1;32m\]'
+Yellow='\[\e[1;33m\]'
+Blue='\[\e[1;34m\]'
+Purple='\[\e[1;35m\]'
+Cyan='\[\e[1;36m\]'
+White='\[\e[1;37m\]'
+
+PROMPT_DIRTRIM=2
+PS1="$Red\$(__ret_ps1 \$?)$Blue\w$Cyan\$(__git_ps1)$Green > $NC"
+PS2="$Green> $NC"
+
+# ------------------------------------------------------------ PATH
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+
+# Haskell
+#export PATH="$HOME/.cabal/bin:$PATH"
+
+# Rust
+#export RUST_SRC_PATH="$HOME/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+#export PATH="$HOME/.cargo/bin:$PATH"
+
+# Go
+#export GOROOT="$HOME/.goroot/go1.4"
+#export GOPATH="$HOME/go"
+#export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+
+# Node
+#load-node() {
+#	export NVM_DIR="$HOME/.nvm"
+#	source "$NVM_DIR/nvm.sh"
+#}
+
+# Ruby
+#export GEM_DIR="$(ruby -rubygems -e 'puts Gem.user_dir')"
+#export PATH="$HOME/.rvm/bin:$GEM_DIR/bin:$PATH"
+
+# Local
+export PATH="$HOME/.local/bin:$PATH"
+
+# ------------------------------------------------------------ ALIAS
+open() {
+    (xdg-open "$@" &> /dev/null &)
+}
+
+mailto() {
+    (xdg-email "$@" &> /dev/null &)
+}
+
+tssh() {
+	ssh -t "$@" "tmux attach-session || tmux new-session"
+}
+
+autotssh() {
+	autossh -t "$@" "tmux attach-session || tmux new-session"
+}
+
+alias l="ls --classify --color=force --group-directories-first --human-readable -l"
+alias ll="l --all"
+alias ack="ack -r --smart-case --follow"
+alias tree="tree -F --dirsfirst"
+
+# ------------------------------------------------------------ COMPLETION
+if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+	source /usr/share/bash-completion/bash_completion
 fi
 
-if [ -f ~/.bash_path ]; then
-    . ~/.bash_path
-fi
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# bash completion
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-# git completion
-if [ -f ~/.config/git-completion.bash ]; then
-    . ~/.config/git-completion.bash
-fi
+#if [[ -f ~/.config/git-completion.bash ]]; then
+#	source ~/.config/git-completion.bash
+#fi

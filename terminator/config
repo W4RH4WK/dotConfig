@@ -1,77 +1,80 @@
 [global_config]
   enabled_plugins = LaunchpadCodeURLHandler,
+  inactive_color_offset = 1.0
 [keybindings]
-  cycle_prev = None
-  next_tab = None
+  close_term = None
   close_window = None
-  group_tab = None
-  resize_left = None
-  rotate_ccw = None
-  reset_clear = None
-  go_right = None
-  new_tab = None
-  resize_right = None
-  resize_down = None
-  toggle_zoom = None
-  scaled_zoom = None
-  zoom_in = <Primary>equal
+  cycle_next = None
+  cycle_prev = None
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_next = None
+  go_prev = None
+  go_right = <Alt>l
+  go_up = <Alt>k
   group_all = None
+  group_tab = None
+  hide_window = None
+  move_tab_left = None
   move_tab_right = None
+  new_tab = None
+  new_terminator = None
+  new_window = None
+  next_tab = None
+  paste = <Primary><Shift>v
   prev_tab = None
-  split_vert = None
+  reset = None
+  reset_clear = None
+  resize_down = None
+  resize_left = None
+  resize_right = None
+  resize_up = None
+  rotate_ccw = <Alt>bracketleft
+  rotate_cw = <Alt>bracketright
+  scaled_zoom = None
+  search = <Primary><Shift>f
+  split_horiz = <Shift><Alt>j
+  split_vert = <Shift><Alt>l
+  toggle_scrollbar = None
+  toggle_zoom = None
   ungroup_all = None
   ungroup_tab = None
-  paste = <Primary><Shift>v
-  cycle_next = None
-  go_prev = None
-  close_term = None
-  new_terminator = None
-  go_next = None
-  go_left = None
-  hide_window = None
-  reset = None
-  search = <Primary><Shift>f
-  go_up = None
-  resize_up = None
-  rotate_cw = None
-  split_horiz = None
-  go_down = None
-  new_window = None
-  move_tab_left = None
-  toggle_scrollbar = None
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    use_system_font = False
-    background_darkness = 0.9
-    background_type = transparent
-    background_image = None
-    foreground_color = "#d0d0d0"
-    scroll_on_output = False
-    show_titlebar = False
-    font = Hack 9
-    background_color = "#1c1c1c"
-    allow_bold = False
-    scrollback_infinite = True
-  [[pres]]
-    scrollbar_position = hidden
-    palette = "#073642:#d30102:#859900:#b58900:#6c71c4:#d33682:#2aa198:#839496:#586e75:#cb4b16:#859900:#b58900:#268bd2:#d33682:#2aa198:#93a1a1"
-    background_image = None
-    use_system_font = False
-    cursor_color = "#002b35"
-    foreground_color = "#002b36"
-    scroll_on_output = False
-    show_titlebar = False
-    font = Hack 14
-    background_color = "#eee8d5"
-    allow_bold = False
-    scrollback_infinite = True
+  zoom_in = <Primary>equal
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_color = "#1c1c1c"
+    background_darkness = 0.9
+    background_image = None
+    background_type = transparent
+    cursor_color = "#ededed"
+    font = Hack 11
+    foreground_color = "#eeeeee"
+    scroll_on_output = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    urgent_bell = True
+    use_system_font = False
+  [[pres]]
+    allow_bold = False
+    background_color = "#eee8d5"
+    background_image = None
+    cursor_color = "#002b35"
+    font = Hack 14
+    foreground_color = "#002b36"
+    palette = "#073642:#d30102:#859900:#b58900:#6c71c4:#d33682:#2aa198:#839496:#586e75:#cb4b16:#859900:#b58900:#268bd2:#d33682:#2aa198:#93a1a1"
+    scroll_on_output = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

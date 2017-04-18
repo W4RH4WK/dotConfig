@@ -1,0 +1,53 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.cursorBlinking": "solid",
+    "editor.fontFamily": "Hack",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 0,
+    "editor.rulers": [79],
+    "editor.quickSuggestions": false,
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.wordWrap": "on",
+
+    "files.insertFinalNewline": true,
+
+    "window.openFilesInNewWindow": "off",
+    "window.zoomLevel": 0,
+    "window.title": "${rootName}${separator}${activeEditorShort}",
+    "window.menuBarVisibility": "toggle",
+
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": true,
+
+    "zenMode.hideTabs": true,
+
+    // Terminal
+    "terminal.integrated.fontSize": 12,
+
+    // Git
+    "git.autofetch": false,
+
+    // Style
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Monokai GRS",
+
+    // C++
+    //"C_Cpp.clang_format_path": "/usr/bin/clang-format-3.7",
+    // "C_Cpp.autocomplete": "Disabled",
+
+    // "clang.cflags": ["-std=c99"],
+    // "clang.cxxflags": ["-std=c++14"],
+
+    // Haskell
+    // "haskelly.codeCompletion": false,
+
+    // Rust
+    // "rust.rustLangSrcPath": "/home/w4rh4wk/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src",
+    // "rust.cargoHomePath": "/home/w4rh4wk/.cargo",
+    // "rust.showOutput": false,
+
+    // Misc
+    "telemetry.enableTelemetry": false,
+    "workbench.welcome.enabled": false
+}

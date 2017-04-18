@@ -1,0 +1,16 @@
+xsetroot -cursor_name left_ptr
+
+gnome-keyring-daemon --start --daemonize &
+
+#amixer -D pulse set Master Playback Switch toggle &
+#amixer set Master mute
+
+nitrogen --restore &
+
+tint2 &
+
+compton &
+
+nm-applet &
+volumeicon &
+xfce4-power-manager &

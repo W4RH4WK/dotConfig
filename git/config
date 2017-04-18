@@ -11,7 +11,8 @@
     s = status --short --branch
     g = grep --break --heading --line-number
     ff = merge --ff-only
-    pff = pull --ff-only
+    puff = pull --ff-only
+    purr = pull --rebase
     mnc = merge --no-ff --no-commit
     ignore = update-index --assume-unchanged
     unignore = update-index --no-assume-unchanged
@@ -30,3 +31,7 @@
 [grep]
     extendRegexp = true
     lineNumber = true
+[diff]
+    tool = vimdiff
+[merge]
+    tool = vimdiff

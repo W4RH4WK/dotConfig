@@ -9,70 +9,23 @@ usage() {
     echo
     echo "  PROGRAM:"
     echo "      bash"
-    echo "      bins"
-    echo "      firefox"
     echo "      git"
-    echo "      htop"
-    echo "      onboard"
     echo "      terminator"
+    echo "      tint2"
+    echo "      vscode"
+    echo "      xmonad"
     echo
 }
 
 config_bash() {
     mkdir -p "$DIR/bash"
-    copy "$HOME/.bash_aliases" "$DIR/bash/aliases"
-    copy "$HOME/.bash_path"    "$DIR/bash/path"
-    copy "$HOME/.bash_prompt"  "$DIR/bash/prompt"
-    copy "$HOME/.bashrc"       "$DIR/bash/bashrc"
-    copy "$HOME/.profile"      "$DIR/bash/profile"
+    copy "$HOME/.bashrc"  "$DIR/bash/bashrc"
+    copy "$HOME/.profile" "$DIR/bash/profile"
 }
 
-config_bins() {
-    mkdir -p "$HOME/.local/bin" "$DIR/bins"
-    copy "$HOME/.local/bin/colortheme"     "$DIR/bins/colortheme"
-    copy "$HOME/.local/bin/dis"            "$DIR/bins/dis"
-    copy "$HOME/.local/bin/open"           "$DIR/bins/open"
-    copy "$HOME/.local/bin/pandoc_exec"    "$DIR/bins/pandoc_exec"
-    copy "$HOME/.local/bin/pandoc_include" "$DIR/bins/pandoc_include"
-    copy "$HOME/.local/bin/presterm"       "$DIR/bins/presterm"
-}
-
-config_firefox() {
-    local FFPROFILE="$HOME/.mozilla/firefox/w4rh4wk.default"
-    mkdir -p "$FFPROFILE" "$DIR/firefox"
-    copy "$FFPROFILE/../profiles.ini" "$DIR/firefox/profiles.ini"
-    copy "$FFPROFILE/user.js"         "$DIR/firefox/user.js"
-    copy "$FFPROFILE/prefs.js"        "$DIR/firefox/prefs.js"
-
-    # remove some noise
-    local filter='
-        app.update.lastUpdateTime
-        browser.open.lastDir
-        browser.slowStartup.averageTime
-        browser.slowStartup.samples
-        buildID
-        devtools.responsiveUI
-        extensions.bootstrappedAddons
-        extensions.enabledAddons
-        extensions.xpiState
-        lastAppVersion
-        lastDailyNotification
-        lastMaintenance
-        lastPlatformVersion
-        lastupdatetime
-        mstone
-        nextupdatetime
-        pingCountTotal
-        pingCountVersion
-        print
-        storage.vacuum.last
-        telemetry
-        toolkit.startup.last_success
-        version
-    '
-    for f in $filter; do
-        sed "/$f/d" -i "$DIR/firefox/prefs.js"
-    done
+config_compton() {
+    mkdir -p "$DIR/compton"
+    copy "$HOME/.config/compton.conf" "$DIR/compton/compton.conf"
 }
 
 config_git() {
@@ -81,30 +34,42 @@ config_git() {
     sed '/token = /d' -i "$DIR/git/config"
 }
 
-config_htop() {
-    copy "$HOME/.config/htop" "$DIR/htop"
-}
-
-config_onboard() {
-    if [[ "$1" == "pull" ]]; then
-        dconf dump /org/onboard/ > "$DIR/onboard/settings"
-    else
-        dconf load /org/onboard/ < "$DIR/onboard/settings"
-    fi
+config_rofi() {
+    mkdir -p "$DIR/rofi"
+    copy "$HOME/.Xresources" "$DIR/rofi/Xresources"
 }
 
 config_terminator() {
     copy "$HOME/.config/terminator" "$DIR/terminator"
 }
 
+config_tint2() {
+    mkdir -p "$HOME/.config/tint2" "$DIR/tint2"
+    copy "$HOME/.config/tint2/tint2rc" "$DIR/tint2/tint2rc"
+}
+
+config_vscode() {
+    mkdir -p "$HOME/.config/Code" "$DIR/vscode"
+    copy "$HOME/.config/Code/User/settings.json"    "$DIR/vscode/settings.json"
+    copy "$HOME/.config/Code/User/keybindings.json" "$DIR/vscode/keybindings.json"
+}
+
+config_xmonad() {
+    mkdir -p "$HOME/.xmonad" "$DIR/xmonad"
+    copy "$HOME/.xmonad/xmonad.hs"         "$DIR/xmonad/xmonad.hs"
+    copy "$HOME/.xmonad/xmonad-session-rc" "$DIR/xmonad/xmonad-session-rc"
+}
+
+
 config_all() {
     config_bash "$1"
-    config_bins "$1"
-    config_firefox "$1"
+    config_compton "$1"
     config_git "$1"
-    config_htop "$1"
-    config_onboard "$1"
+    config_rofi "$1"
     config_terminator "$1"
+    config_tint2 "$1"
+    config_vscode "$1"
+    config_xmonad "$1"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
