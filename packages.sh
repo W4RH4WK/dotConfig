@@ -73,6 +73,7 @@ packages_normal=(
     libstdc++-5-doc
     lightdm
     lxappearance
+    lxpolkit
     m4
     make
     mesa-utils
@@ -87,6 +88,7 @@ packages_normal=(
     openscad
     openvpn
     p7zip-full
+    pasystray
     patch
     pavucontrol
     pdf2svg
@@ -118,13 +120,14 @@ packages_normal=(
     unzip
     vim-gtk3
     vlc
-    volumeicon-alsa
     weechat
     wget
     wget
     wireshark
     xfce4-power-manager
     xfce4-screenshooter
+    xfce4-notifyd
+    xfce4-volumed
     xindy
     xmonad
     xorg

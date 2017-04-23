@@ -82,7 +82,7 @@ time1_font = Ubuntu Regular 10
 #time2_format = %A %d %B
 #time2_font = sans 6
 clock_font_color = #FFFFFF 74
-clock_padding = 0 0
+clock_padding = 2 0
 clock_background_id = 0
 clock_rclick_command = orage
 

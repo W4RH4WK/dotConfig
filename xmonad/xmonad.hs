@@ -1,13 +1,18 @@
 import Control.Applicative
+import Control.Monad (when)
+import Data.Monoid
 import XMonad
+import XMonad.Actions.GroupNavigation
+import XMonad.Actions.Navigation2D
 import XMonad.Actions.SinkAll
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.Minimize
-import XMonad.Layout.BinarySpacePartition (emptyBSP)
+import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.Minimize
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.Spacing
-import XMonad.Actions.Navigation2D
 import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
 
 import qualified XMonad.StackSet as W
@@ -28,12 +33,17 @@ main = xmonad
 
         handleEventHook =  handleEventHook def
                        <+> fullscreenEventHook
-                       <+> minimizeEventHook,
+                       <+> minimizeEventHook
+                       <+> minimizeShiftFocus,
 
-        manageHook = manageDocks,
+        manageHook =  manageDocks
+                  <+> (className =? "Xfce4-notifyd" --> doIgnore),
+
+        logHook = historyHook,
 
         layoutHook = avoidStruts
                    $ minimize
+                   $ mkToggle (NBFULL ?? EOT)
                    $ spacingWithEdge 6
                    $ Tall 1 0.03 0.62 ||| emptyBSP ||| Full
      }
@@ -41,12 +51,15 @@ main = xmonad
     `removeKeysP` ["M-w", "M-e", "M-r", "M-p", "M-S-p", "M-S-c", "M-S-/"]
 
     `additionalKeysP` [
-        ("M-[", sendMessage Shrink),
-        ("M-]", sendMessage Expand),
+        ("M-/", sendMessage Rotate),
+        ("M-[", sendMessage Shrink >> sendMessage (ExpandTowards L)),
+        ("M-]", sendMessage Expand >> sendMessage (ExpandTowards R)),
+
+        ("M-\\", sendMessage $ Toggle NBFULL),
 
         ("M-S-t", sinkAll),
 
-        ("M-x", withFocused minimizeWindow),
+        ("M-x", withFocused minimizeWindow >> windows W.focusDown),
         ("M-S-x", kill),
         ("M-S-<Delete>", spawn "xkill"),
 
@@ -80,3 +93,20 @@ nav = navigation2DP config ("k", "h", "j", "l") modifiers False
     config = def {
         defaultTiledNavigation = centerNavigation
     }
+
+-- * Custom Hooks
+
+minimizeShiftFocus :: Event -> X All
+minimizeShiftFocus (ClientMessageEvent {ev_message_type = mt,
+                                        ev_data = dt}) = do
+    a_cs <- getAtom "WM_CHANGE_STATE"
+    when (mt == a_cs) $ do
+        let message = fromIntegral $ head dt
+        when (message == iconicState) $ focusPrev
+    return $ All True
+minimizeShiftFocus _ = return $ All True
+
+-- * Utils
+
+focusPrev :: X ()
+focusPrev = nextMatch History (return True)

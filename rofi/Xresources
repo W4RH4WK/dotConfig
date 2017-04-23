@@ -8,7 +8,7 @@ rofi.color-normal: #263238, #eeffff, #263238, #00aaff, #eeffff
 rofi.color-urgent: #263238, #eeffff, #263238, #00aaff, #eeffff
 rofi.color-active: #263238, #eeffff, #263238, #00aaff, #eeffff
 rofi.color-window: #263238, #00aaff, #00aaff
-rofi.bw: 4
+rofi.bw: 2
 rofi.location: 0
 rofi.padding: 10
 rofi.fuzzy: false

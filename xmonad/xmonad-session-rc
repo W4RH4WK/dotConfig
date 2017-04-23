@@ -1,16 +1,19 @@
-xsetroot -cursor_name left_ptr
-
+# Utils
 gnome-keyring-daemon --start --daemonize &
+lxpolkit &
 
-#amixer -D pulse set Master Playback Switch toggle &
-#amixer set Master mute
-
+# Basic X
 nitrogen --restore &
+xsetroot -cursor_name left_ptr &
 
+# Panel
 tint2 &
 
+# Composite
 compton &
 
+# Applets
 nm-applet &
-volumeicon &
+pasystray &
 xfce4-power-manager &
+xfce4-volumed &
