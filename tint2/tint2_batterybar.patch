@@ -1,0 +1,63 @@
+diff --git a/src/battery/battery.c b/src/battery/battery.c
+index ccc6975..6b025a5 100644
+--- a/src/battery/battery.c
++++ b/src/battery/battery.c
+@@ -260,6 +260,7 @@ void update_battery_tick(void *arg)
+                 schedule_panel_redraw();
+             }
+         }
++        schedule_redraw(&panels[i].area);
+     }
+ }
+ 
+diff --git a/src/config.c b/src/config.c
+index 297aaa1..f7339e0 100644
+--- a/src/config.c
++++ b/src/config.c
+@@ -412,7 +412,7 @@ void add_entry(char *key, char *value)
+         systray_enabled = 0;
+         launcher_enabled = 0;
+ #ifdef ENABLE_BATTERY
+-        battery_enabled = 0;
++        battery_enabled = 1;
+ #endif
+         clock_enabled = 0;
+         taskbar_enabled = 0;
+diff --git a/src/panel.c b/src/panel.c
+index cb7afa3..b16f3b9 100644
+--- a/src/panel.c
++++ b/src/panel.c
+@@ -34,6 +34,7 @@
+ #include "panel.h"
+ #include "tooltip.h"
+ 
++void panel_foreground(void *obj, cairo_t *c);
+ void panel_clear_background(void *obj);
+ 
+ int signal_pending;
+@@ -224,6 +225,7 @@ void init_panel()
+         p->area.on_screen = TRUE;
+         p->area.resize_needed = 1;
+         p->area.size_mode = LAYOUT_DYNAMIC;
++        p->area._draw_foreground = panel_foreground;
+         p->area._resize = resize_panel;
+         p->area._clear = panel_clear_background;
+         p->separator_list = NULL;
+@@ -409,6 +411,17 @@ void init_panel_size_and_position(Panel *panel)
+     panel_compute_position(panel);
+ }
+ 
++void panel_foreground(void *obj, cairo_t *c)
++{
++    Area *a = obj;
++
++    cairo_set_source_rgb(c, 255, 255, 255);
++    cairo_set_line_width(c, 1);
++    cairo_move_to(c, 0, a->height - 1);
++    cairo_rel_line_to(c, 0, -(a->height * (battery_state.percentage / 100.0)));
++    cairo_stroke(c);
++}
++
+ gboolean resize_panel(void *obj)
+ {
+     Panel *panel = (Panel *)obj;

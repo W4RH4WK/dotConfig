@@ -12,6 +12,7 @@ import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.Minimize
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
 
@@ -43,8 +44,9 @@ main = xmonad
 
         layoutHook = avoidStruts
                    $ minimize
-                   $ mkToggle (NBFULL ?? EOT)
+                   $ mkToggle1 NBFULL
                    $ spacingWithEdge 6
+                   $ smartBorders
                    $ Tall 1 0.03 0.62 ||| emptyBSP ||| Full
      }
 

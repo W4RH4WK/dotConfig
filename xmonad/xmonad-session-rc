@@ -1,6 +1,7 @@
 # Utils
 gnome-keyring-daemon --start --daemonize &
 lxpolkit &
+syndaemon -i 0.3 -t -k &
 
 # Basic X
 nitrogen --restore &
