@@ -8,6 +8,7 @@ import XMonad.Actions.SinkAll
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.Minimize
+import XMonad.Hooks.Place
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.Minimize
 import XMonad.Layout.MultiToggle
@@ -38,6 +39,7 @@ main = xmonad
                        <+> minimizeShiftFocus,
 
         manageHook =  manageDocks
+                  <+> placeHook (inBounds $ underMouse (0.5,0.5))
                   <+> (className =? "Xfce4-notifyd" --> doIgnore),
 
         logHook = historyHook,
@@ -46,8 +48,8 @@ main = xmonad
                    $ minimize
                    $ mkToggle1 NBFULL
                    $ spacingWithEdge 6
-                   $ smartBorders
-                   $ Tall 1 0.03 0.62 ||| emptyBSP ||| Full
+                   $ lessBorders OnlyFloat
+                   $ Tall 1 0.03 0.62 ||| emptyBSP
      }
 
     `removeKeysP` ["M-w", "M-e", "M-r", "M-p", "M-S-p", "M-S-c", "M-S-/"]
