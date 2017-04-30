@@ -1,4 +1,4 @@
-packages_normal=(
+packages=(
     ack-grep
     acpi
     adwaita-icon-theme
@@ -88,9 +88,11 @@ packages_normal=(
     openscad
     openvpn
     p7zip-full
+    paman
     pasystray
     patch
     pavucontrol
+    pavumeter
     pdf2svg
     python3-pep8
     python3-pip
@@ -136,17 +138,23 @@ packages_normal=(
     zip
 )
 
-packages_arc=(
-    moka-icon-theme
-    arc-theme arc-icons
-)
-
-packages_vscode=(
-    code
-)
-
 packages_without_recommended=(
     lightdm
     lightdm-gtk-greeter
     lightdm-gtk-greeter-settings
 )
+
+# ppa:noobslab/icons
+# deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /
+packages_arc=(
+    arc-icons
+    arc-theme
+    moka-icon-theme
+)
+
+# deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+packages_vscode=(code)
+
+# ppa:obsproject/obs-studio
+packages_obs=(obs-studio)
+
