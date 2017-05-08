@@ -1,141 +1,140 @@
-packages=(
+packages_cli=(
     ack-grep
     acpi
-    adwaita-icon-theme
     aircrack-ng
     alsa-utils
     apt-file
-    apt-xapian-index
-    audacious
-    audacious-plugins
     autoconf
     automake
     autossh
-    baobab
     binutils
     bison
-    blender
-    breeze-cursor-theme
-    breeze-icon-theme
     build-essential
-    cheese
-    chromium-browser
     cifs-utils
     cmake
     cmatrix
-    compton
     curl
-    dconf-gsettings-backend
-    dconf-tools
-    dia
-    dmz-cursor-theme
     dos2unix
     ffmpeg
-    filezilla
     flex
     fonts-dejavu
     fonts-hack-ttf
     fonts-inconsolata
-    freecad
     g++
     gcc
-    gcolor2
     gdb
-    gimp
     git
+    gnupg
+    haskell-platform
+    haskell-stack
+    hexer
+    htop
+    imagemagick
+    iperf3
+    ipython3
+    less
+    lftp
+    libstdc++-5-doc
+    m4
+    make
+    minicom
+    ncdu
+    nmap
+    openvpn
+    p7zip-full
+    patch
+    pdf2svg
+    python3-pep8
+    python3-pip
+    python3-virtualenv
+    recode
+    smbclient
+    software-properties-common
+    tcpdump
+    texlive-fonts-extra
+    texlive-full
+    texlive-xetex
+    tmux
+    tree
+    ttf-ubuntu-font-family
+    ubuntu-restricted-extras
+    unzip
+    vim-nox
+    weechat
+    wget
+    wireshark
+    xindy
+    xz-utils
+    youtube-dl
+    zip
+)
+
+packages_gui=(
+    adwaita-icon-theme
+    apt-xapian-index
+    audacious
+    audacious-plugins
+    baobab
+    blender
+    breeze-cursor-theme
+    breeze-icon-theme
+    cheese
+    chromium-browser
+    compton
+    dconf-gsettings-backend
+    dconf-tools
+    dia
+    dmz-cursor-theme
+    filezilla
+    freecad
+    gcolor2
+    gimp
     gitg
     gksu
     gnome-calculator
     gnome-icon-theme
     gnome-power-manager
     gnome-system-monitor
-    gnupg
     gnuplot
     gparted
-    gpick
-    haskell-platform
-    haskell-stack
-    hexer
-    htop
-    imagemagick
     indicator-power
     inkscape
-    iperf3
-    ipython3
     keepassx
     krita
-    less
-    lftp
     libappindicator1
-    libglib2.0-bin
     libreoffice
     libreoffice-style-breeze
-    libstdc++-5-doc
-    lightdm
     lxappearance
     lxpolkit
-    m4
-    make
     mesa-utils
-    minicom
-    ncdu
     nemo
     nemo-fileroller
     nitrogen
-    nmap
     okular
     onboard
     openscad
-    openvpn
-    p7zip-full
     paman
     pasystray
-    patch
     pavucontrol
     pavumeter
-    pdf2svg
-    python3-pep8
-    python3-pip
     qt4-qtconfig
     qtikz
-    recode
-    remmina
     remmina
     ristretto
     rofi
-    smbclient
-    software-properties-common
     steam
     synaptic
-    synaptic
-    systemd-gui
-    tcpdump
     terminator
-    texlive-full
     thunderbird
     tint2
-    tmux
     transmission
-    tree
-    ttf-ubuntu-font-family
-    ubuntu-restricted-extras
-    unzip
-    vim-gtk3
     vlc
-    weechat
-    wget
-    wget
-    wireshark
     xfce4-power-manager
     xfce4-screenshooter
     xfce4-notifyd
     xfce4-volumed
-    xindy
     xmonad
     xorg
-    xz-utils
-    youtube-dl
-    zip
 )
 
 packages_without_recommended=(
