@@ -13,6 +13,7 @@ packages_cli=(
     cifs-utils
     cmake
     cmatrix
+    cups
     curl
     dos2unix
     ffmpeg
@@ -35,6 +36,8 @@ packages_cli=(
     less
     lftp
     libstdc++-5-doc
+    light-locker
+    light-locker-settings
     m4
     make
     minicom
@@ -124,6 +127,7 @@ packages_gui=(
     rofi
     steam
     synaptic
+    system-config-printer-gnome
     terminator
     thunderbird
     tint2
