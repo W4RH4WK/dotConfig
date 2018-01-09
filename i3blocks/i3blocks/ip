@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ip=$(ip addr show dev "$BLOCK_INSTANCE" | grep -Po 'inet \K[\d.]+')
+
+if [[ -z "$ip" ]]; then
+    echo " no IP"
+    exit
+fi
+
+echo " $ip"

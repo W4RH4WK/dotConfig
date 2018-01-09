@@ -9,6 +9,7 @@ usage() {
     echo
     echo "  PROGRAM:"
     echo "      i3"
+    echo "      i3blocks"
     echo "      bash"
     echo "      git"
     echo "      vscode"
@@ -19,6 +20,12 @@ usage() {
 config_i3() {
     mkdir -p "$DIR/i3"
     copy "$HOME/.config/i3/config" "$DIR/i3/config"
+}
+
+config_i3blocks() {
+    mkdir -p "$DIR/i3blocks"
+    copy "$HOME/.config/i3/i3blocks.conf" "$DIR/i3blocks/i3blocks.conf"
+    copy "$HOME/.config/i3/i3blocks"      "$DIR/i3blocks/i3blocks"
 }
 
 config_bash() {
@@ -51,6 +58,7 @@ config_xresources() {
 
 config_all() {
     config_i3 "$1"
+    config_i3blocks "$1"
     config_bash "$1"
     config_compton "$1"
     config_git "$1"
