@@ -35,11 +35,6 @@ config_git() {
     sed '/token = /d' -i "$DIR/git/config"
 }
 
-config_rofi() {
-    mkdir -p "$DIR/rofi"
-    copy "$HOME/.Xresources" "$DIR/rofi/Xresources"
-}
-
 config_terminator() {
     copy "$HOME/.config/terminator" "$DIR/terminator"
 }
@@ -70,7 +65,6 @@ config_all() {
     config_bash "$1"
     config_compton "$1"
     config_git "$1"
-    config_rofi "$1"
     config_terminator "$1"
     config_tint2 "$1"
     config_vscode "$1"
