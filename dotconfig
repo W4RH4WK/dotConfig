@@ -8,11 +8,17 @@ usage() {
     echo "Usage: $0 <pull | push> <PROGRAM | all>"
     echo
     echo "  PROGRAM:"
+    echo "      i3"
     echo "      bash"
     echo "      git"
     echo "      vscode"
     echo "      xresources"
     echo
+}
+
+config_i3() {
+    mkdir -p "$DIR/i3"
+    copy "$HOME/.config/i3/config" "$DIR/i3/config"
 }
 
 config_bash() {
@@ -44,6 +50,7 @@ config_xresources() {
 }
 
 config_all() {
+    config_i3 "$1"
     config_bash "$1"
     config_compton "$1"
     config_git "$1"

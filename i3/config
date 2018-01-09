@@ -1,0 +1,167 @@
+# Mode Key
+
+set $mod Mod4
+
+floating_modifier $mod
+
+#focus_follows_mouse no
+
+# Font
+
+font pango:Ubuntu 10
+
+# Launch Applications
+
+bindsym $mod+e            exec x-terminal-emulator
+bindsym $mod+c            exec gnome-calculator
+bindsym $mod+f            exec nemo
+bindsym $mod+r            exec rofi -modi run -show run
+bindsym $mod+Shift+delete exec xkill
+
+bindsym --release Print             exec xfce4-screenshooter -f
+bindsym --release $mod+Print        exec xfce4-screenshooter -w
+bindsym --release Shift+Print       exec xfce4-screenshooter -r
+
+bindsym $mod+BackSpace    exec dm-tool lock
+
+bindsym XF86Tools         exec gnome-system-monitor
+bindsym XF86Display       exec $HOME/.local/bin/dis
+
+# Window Management
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+bracketleft  resize grow left 20px
+bindsym $mod+bracketright resize shrink left 20px
+
+bindsym $mod+a       focus parent
+bindsym $mod+Shift+a focus parent
+bindsym $mod+s       focus child
+bindsym $mod+Shift+s focus child
+
+bindsym $mod+grave move scratchpad
+
+bindsym $mod+n split h
+bindsym $mod+v split v
+
+bindsym $mod+backslash fullscreen toggle
+
+bindsym $mod+q layout tabbed
+bindsym $mod+w layout toggle split
+
+bindsym $mod+space       focus mode_toggle
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+Tab    exec rofi -modi window -show window
+bindsym $mod+Delete kill
+
+new_window pixel
+
+hide_edge_borders both
+
+# Workspace Management
+
+set $ws1 "1:    "
+set $ws2 "2:  2  "
+set $ws3 "3:  3  "
+set $ws4 "4:  4  "
+set $ws5 "5:  5  "
+set $ws6 "6:  6  "
+set $ws7 "7:  7  "
+set $ws8 "8:  8  "
+set $ws9 "9:    "
+set $ws0 "10:    "
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+#bindsym $mod+Shift+bracketleft  move workspace output left
+#bindsym $mod+Shift+bracketright move workspace output right
+
+workspace_auto_back_and_forth yes
+
+# i3 Management
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes' 'i3-msg exit'"
+
+# color
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #1d1d1e #1d1d1e #ffffff #484e50   #5f676a
+client.unfocused        #1d1d1e #1d1d1e #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+# i3 Bar
+
+set $bar_fg #d1d4e0
+set $bar_bg #1d1d1e
+
+bar {
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	#tray_output eDP1
+    font pango:Ubuntu Nerd Font 16
+
+    strip_workspace_numbers yes
+
+    colors {
+        statusline  $bar_fg
+        background  $bar_bg
+        separator   $bar_bg
+
+        focused_workspace   $bar_bg $bar_bg $bar_fg
+        active_workspace    $bar_bg $bar_bg $bar_fg
+        inactive_workspace  $bar_bg $bar_bg #7780a1
+        urgent_workspace    $bar_bg $bar_bg #ee829f
+    }
+}
+
+# Autostart
+
+exec --no-startup-id light-locker
+exec --no-startup-id xsetroot -cursor_name left_ptr
+exec --no-startup-id nitrogen --restore
+
+exec --no-startup-id gnome-keyring-daemon --start --daemonize
+exec --no-startup-id lxpolkit
+
+exec --no-startup-id syndaemon -i 0.4 -t -k -d
+
+exec --no-startup-id nm-applet
+#exec --no-startup-id pasystray
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-volumed
+
+#exec --no-startup-id compton
