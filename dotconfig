@@ -10,7 +10,6 @@ usage() {
     echo "  PROGRAM:"
     echo "      bash"
     echo "      git"
-    echo "      tint2"
     echo "      vscode"
     echo "      xmonad"
     echo "      xresources"
@@ -34,11 +33,6 @@ config_git() {
     sed '/token = /d' -i "$DIR/git/config"
 }
 
-config_tint2() {
-    mkdir -p "$HOME/.config/tint2" "$DIR/tint2"
-    copy "$HOME/.config/tint2/tint2rc" "$DIR/tint2/tint2rc"
-}
-
 config_vscode() {
     mkdir -p "$HOME/.config/Code" "$DIR/vscode"
     copy "$HOME/.config/Code/User/settings.json"    "$DIR/vscode/settings.json"
@@ -60,7 +54,6 @@ config_all() {
     config_bash "$1"
     config_compton "$1"
     config_git "$1"
-    config_tint2 "$1"
     config_vscode "$1"
     config_xmonad "$1"
     config_xresources "$1"
