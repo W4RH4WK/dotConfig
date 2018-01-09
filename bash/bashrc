@@ -35,40 +35,22 @@ PS1="$Red\$(__ret_ps1 \$?)$Blue\w$Cyan\$(__git_ps1)$Green > $NC"
 PS2="$Green> $NC"
 
 # ------------------------------------------------------------ PATH
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-
-# Haskell
-#export PATH="$HOME/.cabal/bin:$PATH"
-
-# Rust
-#export RUST_SRC_PATH="$HOME/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
-#export PATH="$HOME/.cargo/bin:$PATH"
-
-# Go
-#export GOROOT="$HOME/.goroot/go1.4"
-#export GOPATH="$HOME/go"
-#export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+source "$HOME/.bash_path"
 
 # Node
-#load-node() {
-#	export NVM_DIR="$HOME/.nvm"
-#	source "$NVM_DIR/nvm.sh"
-#}
+use-node() {
+	export NVM_DIR="$HOME/.nvm"
+	source "$NVM_DIR/nvm.sh"
+    source "$NVM_DIR/bash_completion"
+}
 
-# Ruby
-#export GEM_DIR="$(ruby -rubygems -e 'puts Gem.user_dir')"
-#export PATH="$HOME/.rvm/bin:$GEM_DIR/bin:$PATH"
-
-# Local
-export PATH="$HOME/.local/bin:$PATH"
+# ------------------------------------------------------------ WINE
+export WINEARCH="win32"
+export WINEPREFIX="$HOME/.wine32"
 
 # ------------------------------------------------------------ ALIAS
 open() {
-    (xdg-open "$@" &> /dev/null &)
-}
-
-mailto() {
-    (xdg-email "$@" &> /dev/null &)
+	(xdg-open "$@" &> /dev/null &)
 }
 
 tssh() {
@@ -77,6 +59,10 @@ tssh() {
 
 autotssh() {
 	autossh -t "$@" "tmux attach-session || tmux new-session"
+}
+
+tosh() {
+	mosh "$@" tmux attach-session
 }
 
 alias l="ls --classify --color=force --group-directories-first --human-readable -l"
@@ -88,7 +74,3 @@ alias tree="tree -F --dirsfirst"
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
 	source /usr/share/bash-completion/bash_completion
 fi
-
-#if [[ -f ~/.config/git-completion.bash ]]; then
-#	source ~/.config/git-completion.bash
-#fi
