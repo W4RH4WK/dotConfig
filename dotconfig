@@ -10,7 +10,6 @@ usage() {
     echo "  PROGRAM:"
     echo "      bash"
     echo "      git"
-    echo "      terminator"
     echo "      tint2"
     echo "      vscode"
     echo "      xmonad"
@@ -33,10 +32,6 @@ config_git() {
     mkdir -p "$DIR/git"
     copy "$HOME/.gitconfig" "$DIR/git/config"
     sed '/token = /d' -i "$DIR/git/config"
-}
-
-config_terminator() {
-    copy "$HOME/.config/terminator" "$DIR/terminator"
 }
 
 config_tint2() {
@@ -65,7 +60,6 @@ config_all() {
     config_bash "$1"
     config_compton "$1"
     config_git "$1"
-    config_terminator "$1"
     config_tint2 "$1"
     config_vscode "$1"
     config_xmonad "$1"
