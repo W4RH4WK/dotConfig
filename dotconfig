@@ -11,7 +11,6 @@ usage() {
     echo "      bash"
     echo "      git"
     echo "      vscode"
-    echo "      xmonad"
     echo "      xresources"
     echo
 }
@@ -39,12 +38,6 @@ config_vscode() {
     copy "$HOME/.config/Code/User/keybindings.json" "$DIR/vscode/keybindings.json"
 }
 
-config_xmonad() {
-    mkdir -p "$HOME/.xmonad" "$DIR/xmonad"
-    copy "$HOME/.xmonad/xmonad.hs"         "$DIR/xmonad/xmonad.hs"
-    copy "$HOME/.xmonad/xmonad-session-rc" "$DIR/xmonad/xmonad-session-rc"
-}
-
 config_xresources() {
     mkdir -p "$DIR/Xresources"
     copy "$HOME/.Xresources" "$DIR/Xresources/Xresources"
@@ -55,7 +48,6 @@ config_all() {
     config_compton "$1"
     config_git "$1"
     config_vscode "$1"
-    config_xmonad "$1"
     config_xresources "$1"
 }
 
