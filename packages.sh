@@ -4,9 +4,12 @@ packages_cli=(
     aircrack-ng
     alsa-utils
     apt-file
+    aspell
     autoconf
     automake
     autossh
+    bc
+    biber
     binutils
     bison
     build-essential
@@ -15,24 +18,34 @@ packages_cli=(
     cmatrix
     cups
     curl
+    dhex
+    diffutils
     dos2unix
+    doxygen
+    exuberant-ctags
     ffmpeg
+    findutils
     flex
     fonts-dejavu
     fonts-hack-ttf
     fonts-inconsolata
     g++
     gcc
+    gcovr lcov
     gdb
     git
+    glances
     gnupg
+    graphviz
     haskell-platform
     haskell-stack
     hexer
+    ht
     htop
     imagemagick
     iperf3
     ipython3
+    jq
     less
     lftp
     libstdc++-5-doc
@@ -41,7 +54,9 @@ packages_cli=(
     m4
     make
     minicom
+    most
     ncdu
+    ninja-build
     nmap
     openvpn
     p7zip-full
@@ -51,6 +66,7 @@ packages_cli=(
     python3-pip
     python3-virtualenv
     recode
+    shellcheck
     smbclient
     software-properties-common
     tcpdump
@@ -63,6 +79,7 @@ packages_cli=(
     ubuntu-restricted-extras
     unzip
     vim-nox
+    w3m
     weechat
     wget
     wireshark
@@ -88,6 +105,7 @@ packages_gui=(
     dconf-tools
     dia
     dmz-cursor-theme
+    feh
     filezilla
     freecad
     gcolor2
@@ -100,6 +118,8 @@ packages_gui=(
     gnome-system-monitor
     gnuplot
     gparted
+    i3
+    i3blocks
     indicator-power
     inkscape
     keepassx
@@ -125,19 +145,17 @@ packages_gui=(
     remmina
     ristretto
     rofi
+    rxvt-unicode-256color
     steam
     synaptic
     system-config-printer-gnome
-    terminator
     thunderbird
-    tint2
     transmission
     vlc
+    xfce4-notifyd
     xfce4-power-manager
     xfce4-screenshooter
-    xfce4-notifyd
     xfce4-volumed
-    xmonad
     xorg
 )
 
