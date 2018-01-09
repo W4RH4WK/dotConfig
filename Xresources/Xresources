@@ -1,0 +1,78 @@
+! -- Color
+*.foreground: #d0d0d0
+*.background: #1c1c1c
+*.cursorColor: #d0d0d0
+*.color0: #2e3436
+*.color1: #cc0000
+*.color2: #4e9a06
+*.color3: #c4a000
+*.color4: #3465a4
+*.color5: #75507b
+*.color6: #06989a
+*.color7: #d3d7cf
+*.color8: #555753
+*.color9: #ef2929
+*.color10: #8ae234
+*.color11: #fce94f
+*.color12: #729fcf
+*.color13: #ad7fa8
+*.color14: #34e2e2
+*.color15: #eeeeec
+
+! -- Font
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+*.font: xft:Hack:size=11
+
+! -- URxvt
+URxvt.boldFont:
+URxvt.cursorBlink: true
+URxvt.iso14755: false
+URxvt.letterSpace: -1
+URxvt.matcher.button: 1
+URxvt.saveLines: 5000
+URxvt.scrollBar: false
+URxvt.scrollTtyKeypress: true
+URxvt.scrollTtyOutput: false
+URxvt.url-launcher: /usr/bin/firefox
+!URxvt.inheritPixmap: true
+!URxvt.shading: 15
+!URxvt.transparent: true
+URxvt.depth: 32
+URxvt.background: [90]#1c1c1c
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-equal:  resize-font:bigger
+URxvt.keysym.C-0: resize-font:reset
+URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.internalBorder: 8
+
+! -- rofi
+rofi.font: Hack 14
+rofi.hide-scrollbar: true
+rofi.padding: 12
+rofi.width: 40
+rofi.lines: 8
+rofi.separator-style: none
+!rofi.color-window: #1c1c1c, #d3d7cf, #d0d0d0
+!rofi.color-normal: #1c1c1c, #3465a4, #1c1c1c, #3465a4, #1c1c1c
+!rofi.color-active: #1c1c1c, #3465a4, #1c1c1c, #3465a4, #1c1c1c
+rofi.color-normal: #263238, #eeffff, #263238, #00aaff, #eeffff
+rofi.color-urgent: #263238, #eeffff, #263238, #00aaff, #eeffff
+rofi.color-active: #263238, #eeffff, #263238, #00aaff, #eeffff
+rofi.color-window: #263238, #00aaff, #00aaff
+rofi.fuzzy: false
+rofi.auto-select: false
+
+!rofi.font: Hack 14
+!rofi.columns: 1
+!rofi.opacity: 90
+!rofi.color-enabled: true
+!rofi.color-normal: #263238, #eeffff, #263238, #00aaff, #eeffff
+!rofi.color-urgent: #263238, #eeffff, #263238, #00aaff, #eeffff
+!rofi.color-active: #263238, #eeffff, #263238, #00aaff, #eeffff
+!rofi.color-window: #263238, #00aaff, #00aaff
+!rofi.bw: 2
+!rofi.location: 0
+!rofi.padding: 10
+!rofi.separator-style: solid

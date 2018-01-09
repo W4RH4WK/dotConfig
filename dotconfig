@@ -14,6 +14,7 @@ usage() {
     echo "      tint2"
     echo "      vscode"
     echo "      xmonad"
+    echo "      xresources"
     echo
 }
 
@@ -60,6 +61,10 @@ config_xmonad() {
     copy "$HOME/.xmonad/xmonad-session-rc" "$DIR/xmonad/xmonad-session-rc"
 }
 
+config_xresources() {
+    mkdir -p "$DIR/Xresources"
+    copy "$HOME/.Xresources" "$DIR/Xresources/Xresources"
+}
 
 config_all() {
     config_bash "$1"
@@ -70,6 +75,7 @@ config_all() {
     config_tint2 "$1"
     config_vscode "$1"
     config_xmonad "$1"
+    config_xresources "$1"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
