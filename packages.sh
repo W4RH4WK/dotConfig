@@ -73,6 +73,7 @@ packages_cli=(
     texlive-fonts-extra
     texlive-full
     texlive-xetex
+    tig
     tmux
     tree
     ttf-ubuntu-font-family
@@ -110,7 +111,6 @@ packages_gui=(
     freecad
     gcolor2
     gimp
-    gitg
     gksu
     gnome-calculator
     gnome-icon-theme
