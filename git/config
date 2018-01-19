@@ -5,6 +5,7 @@
     user = w4rh4wk
 [alias]
     c = checkout
+    co = commit
     d = diff
     ds = diff --staged
     l = log --all --graph --oneline --decorate
@@ -17,6 +18,7 @@
     ignore = update-index --assume-unchanged
     unignore = update-index --no-assume-unchanged
     ignored = !git ls-files -v | grep '^[[:lower:]]'
+    gud = !cat $HOME/Pictures/praise_the_sun.txt
 [color]
     ui = true
 [core]
