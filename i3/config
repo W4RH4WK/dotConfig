@@ -15,7 +15,8 @@ font pango:Ubuntu 10
 bindsym $mod+e            exec x-terminal-emulator
 bindsym $mod+c            exec gnome-calculator
 bindsym $mod+f            exec nemo
-bindsym $mod+r            exec rofi -modi run -show run
+bindsym $mod+r            exec rofi -show run
+bindsym $mod+x            exec rofi -show ssh
 bindsym $mod+Shift+delete exec xkill
 
 bindsym --release Print             exec xfce4-screenshooter -f
@@ -60,7 +61,7 @@ bindsym $mod+w layout toggle split
 bindsym $mod+space       focus mode_toggle
 bindsym $mod+Shift+space floating toggle
 
-bindsym $mod+Tab    exec rofi -modi window -show window
+bindsym $mod+Tab    exec rofi -show window
 bindsym $mod+Delete kill
 
 new_window pixel
@@ -164,4 +165,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-volumed
 
-#exec --no-startup-id compton
+exec --no-startup-id compton

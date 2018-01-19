@@ -45,15 +45,9 @@ URxvt.perl-ext-common: default,matcher,resize-font
 URxvt.internalBorder: 8
 
 ! -- rofi
-rofi.font: Hack 14
-rofi.hide-scrollbar: true
-rofi.padding: 12
-rofi.width: 40
-rofi.lines: 8
-rofi.separator-style: none
-rofi.color-normal: #263238, #eeffff, #263238, #00aaff, #eeffff
-rofi.color-urgent: #263238, #eeffff, #263238, #00aaff, #eeffff
-rofi.color-active: #263238, #eeffff, #263238, #00aaff, #eeffff
-rofi.color-window: #263238, #00aaff, #00aaff
+rofi.modi: run,ssh,window
+rofi.sidebar-mode: true
+rofi.theme: sidestyle.rasi
+rofi.show-icons: false
 rofi.fuzzy: false
 rofi.auto-select: false

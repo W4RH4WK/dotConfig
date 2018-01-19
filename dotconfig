@@ -12,6 +12,7 @@ usage() {
     echo "      i3blocks"
     echo "      bash"
     echo "      git"
+    echo "      rofi"
     echo "      vscode"
     echo "      xresources"
     echo
@@ -43,6 +44,11 @@ config_git() {
     mkdir -p "$DIR/git"
     copy "$HOME/.gitconfig" "$DIR/git/config"
     sed '/token = /d' -i "$DIR/git/config"
+}
+
+config_rofi() {
+    mkdir -p "$DIR/rofi"
+    copy "$HOME/.config/rofi" "$DIR/rofi"
 }
 
 config_vscode() {

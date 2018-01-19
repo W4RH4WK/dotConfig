@@ -9,3 +9,5 @@
 ![Clean](screenshots/clean.png)
 
 ![Unixporn](screenshots/unixporn.png)
+
+![Rofi](screenshots/rofi.png)
