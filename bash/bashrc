@@ -73,6 +73,7 @@ alias l="ls --classify --color=force --group-directories-first --human-readable 
 alias ll="l --all"
 alias ack="ack -r --smart-case --follow"
 alias tree="tree -F --dirsfirst"
+alias vim="nvim"
 
 # ------------------------------------------------------------ COMPLETION
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
