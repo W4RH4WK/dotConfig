@@ -1,6 +1,7 @@
 * {
 	fg1-color: #e52027;
 	fg2-color: #691a20;
+	fg3-color: #ffa500;
 	bg1-color: #1d1d1e;
 	bg2-color: #28252e;
 
@@ -50,7 +51,8 @@
 
 #button selected {
 	font: "Hack Nerd Font 12";
-	background-color: @fg2-color;
+	color: @bg1-color;
+	background-color: @fg1-color;
 }
 
 /* ------------------------------------------------- */
@@ -88,39 +90,34 @@
 	background-color: @bg1-color;
 }
 
-#element normal, alternate {
-	background-color: @bg1-color;
-}
-
-#element alternate {
-	background-color: @bg1-color;
-}
-
-#element selected normal {
-	background-color: @fg2-color;
-}
+#element normal {}
 
 #element normal active {
-	background-color: @bg2-color;
+	color: @fg2-color;
 }
 
 #element normal urgent {
-	background-color: Orange;
+	color: @fg3-color;
 }
 
 #element alternate active {
-	/* text-color: @focus-col; */
+	color: @fg2-color;
 }
 
 #element alternate urgent {
-	background-color: OrangeRed;
+	color: @fg3-color;
+}
+
+#element selected normal {
+	background-color: @bg2-color;
 }
 
 #element selected active {
-	color: @fg1-color;
-	background-color:  @fg2-color;
+	color: @fg2-color;
+	background-color:  @bg2-color;
 }
 
 #element selected urgent {
-	background-color:  DarkOrange;
+	color: darkorange;
+	background-color: @bg2-color;
 }
