@@ -18,6 +18,7 @@ bindsym $mod+f            exec nemo
 bindsym $mod+r            exec rofi -show run
 bindsym $mod+x            exec rofi -show ssh
 bindsym $mod+Shift+delete exec xkill
+bindsym $mod+slash        exec xcalib -i -a
 
 bindsym --release Print             exec xfce4-screenshooter -f
 bindsym --release $mod+Print        exec xfce4-screenshooter -w
@@ -26,7 +27,7 @@ bindsym --release Shift+Print       exec xfce4-screenshooter -r
 bindsym $mod+BackSpace    exec dm-tool lock
 
 bindsym XF86Tools         exec gnome-system-monitor
-bindsym XF86Display       exec $HOME/.local/bin/dis
+bindsym XF86Display       exec xrandr --auto
 
 # Window Management
 
@@ -40,8 +41,8 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+bracketleft  resize grow left 20px
-bindsym $mod+bracketright resize shrink left 20px
+bindsym $mod+equal resize grow width 20px
+bindsym $mod+minus resize shrink width 20px
 
 bindsym $mod+a       focus parent
 bindsym $mod+Shift+a focus parent
@@ -120,7 +121,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 client.focused_inactive #1d1d1e #1d1d1e #ffffff #484e50   #5f676a
 client.unfocused        #1d1d1e #1d1d1e #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.urgent           #ffa500 #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
