@@ -19,6 +19,7 @@ bindsym $mod+r            exec rofi -show run
 bindsym $mod+x            exec rofi -show ssh
 bindsym $mod+Shift+delete exec xkill
 bindsym $mod+slash        exec xcalib -i -a
+bindsym $mod+p            exec xrandr --auto
 
 bindsym --release Print             exec xfce4-screenshooter -f
 bindsym --release $mod+Print        exec xfce4-screenshooter -w
@@ -27,7 +28,6 @@ bindsym --release Shift+Print       exec xfce4-screenshooter -r
 bindsym $mod+BackSpace    exec dm-tool lock
 
 bindsym XF86Tools         exec gnome-system-monitor
-bindsym XF86Display       exec xrandr --auto
 
 # Window Management
 
