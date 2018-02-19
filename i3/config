@@ -115,38 +115,48 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes' 'i3-msg exit'"
 
-# color
+# colors
+set_from_resource $color_fg foreground
+set_from_resource $color_bg background
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #1d1d1e #1d1d1e #ffffff #484e50   #5f676a
-client.unfocused        #1d1d1e #1d1d1e #888888 #292d2e   #222222
-client.urgent           #ffa500 #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+set $color0 #2e3436
+set $color1 #ff0064
+set $color2 #39ff00
+set $color3 #ffff00
+set $color4 #00b4ff
+set $color5 #fb22b0
+set $color6 #27e5f2
+set $color7 #4a545c
+set $color8 #555753
 
-client.background       #ffffff
+# class                 border    backgr.   text        indicator   child_border
+client.focused          $color4   $color4   $color_fg   $color4     $color4
+client.focused_inactive $color0   $color0   $color_fg   $color7     $color7
+client.unfocused        $color0   $color0   $color7     $color0     $color0
+client.urgent           $color3   $color2   $color_fg   $color1     $color3
+client.placeholder      #000000   $color0   $color_fg   #000000     $color0
+
+client.background       $color_bg
 
 # i3 Bar
 
-set $bar_fg #d1d4e0
-set $bar_bg #1d1d1e
-
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	#tray_output eDP1
+    #tray_output eDP1
     font pango:Ubuntu Nerd Font 16
+
 
     strip_workspace_numbers yes
 
     colors {
-        statusline  $bar_fg
-        background  $bar_bg
-        separator   $bar_bg
+        statusline  $color_fg
+        background  $color_bg
+        separator   $color_bg
 
-        focused_workspace   $bar_bg $bar_bg $bar_fg
-        active_workspace    $bar_bg $bar_bg $bar_fg
-        inactive_workspace  $bar_bg $bar_bg #7780a1
-        urgent_workspace    $bar_bg $bar_bg #ee829f
+        focused_workspace   $color_bg $color_bg $color_fg
+        active_workspace    $color_bg $color_bg $color_fg
+        inactive_workspace  $color_bg $color_bg $color7
+        urgent_workspace    $color_bg $color_bg $color1
     }
 }
 

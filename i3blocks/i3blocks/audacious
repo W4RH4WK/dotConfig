@@ -8,11 +8,15 @@ fi
 
 if [[ "$status" == "playing" ]]; then
     echo -n "  "
+    color="#00b4ff"
 else
     echo -n "  "
+    color="#ffff00"
 fi
 
 artist=$(audtool --current-song-tuple-data artist)
 title=$(audtool --current-song-tuple-data title)
 
 echo "$artist - $title"
+echo
+echo "$color"

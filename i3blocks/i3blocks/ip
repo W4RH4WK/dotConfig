@@ -3,8 +3,12 @@
 ip=$(ip addr show dev "$BLOCK_INSTANCE" | grep -Po 'inet \K[\d.]+')
 
 if [[ -z "$ip" ]]; then
-    echo " no IP"
-    exit
+    ip="no IP"
+    color="#ff0064"
+else
+    color="#00b4ff"
 fi
 
 echo " $ip"
+echo
+echo "$color"

@@ -1,9 +1,9 @@
 * {
-	fg1-color: #e52027;
-	fg2-color: #691a20;
-	fg3-color: #ffa500;
-	bg1-color: #1d1d1e;
-	bg2-color: #28252e;
+	fg1-color: #00b4ff;
+	fg2-color: #39ff00;
+	fg3-color: #ffff00;
+	bg1-color: #1c1c1c;
+	bg2-color: #2e3436;
 
 	text-color: @fg1-color;
 	background-color: rgba(0, 0, 0, 0.6);

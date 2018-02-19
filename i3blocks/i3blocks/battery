@@ -1,3 +1,15 @@
 #!/bin/bash
 
-echo " $(cat /sys/class/power_supply/BAT${BLOCK_INSTANCE}/capacity)%"
+level=$(cat /sys/class/power_supply/BAT${BLOCK_INSTANCE}/capacity)
+
+if [[ "$level" -gt 60 ]]; then
+    color="#39ff00"
+elif [[ "$level" -gt 20 ]]; then
+    color="#ffff00"
+else
+    color="#ff0064"
+fi
+
+echo " $level%"
+echo
+echo "$color"
