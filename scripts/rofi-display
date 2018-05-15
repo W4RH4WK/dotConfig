@@ -1,0 +1,21 @@
+#!/bin/bash
+
+case $(echo auto laptop home work | rofi -show dmenu -dmenu -p 'Display: ' -sep ' ' -no-custom) in
+	auto)
+		xrandr --auto
+		;;
+
+	laptop)
+		xrandr --output eDP1 --auto --output DP2-1 --off --output DP2-2 --off
+		;;
+
+	home)
+		xrandr --output eDP1 --off --output DP2-1 --auto
+		;;
+
+	work)
+		xrandr --output DP2-2 --auto --output eDP1 --off
+		sleep 5
+		xrandr --output DP2-1 --auto --right-of DP2-2
+		;;
+esac

@@ -15,6 +15,7 @@ usage() {
     echo "      rofi"
     echo "      vscode"
     echo "      xresources"
+    echo "      scripts"
     echo
 }
 
@@ -63,6 +64,15 @@ config_xresources() {
     copy "$HOME/.Xresources" "$DIR/Xresources/Xresources"
 }
 
+config_scripts() {
+	mkdir -p "$DIR/scripts"
+	copy "$HOME/.local/bin/lt"           "$DIR/scripts/lt"
+	copy "$HOME/.local/bin/mailto"       "$DIR/scripts/mailto"
+	copy "$HOME/.local/bin/rofi-display" "$DIR/scripts/rofi-display"
+	copy "$HOME/.local/bin/rofi-remmina" "$DIR/scripts/rofi-remmina"
+	copy "$HOME/.local/bin/xdg-open"     "$DIR/scripts/xdg-open"
+}
+
 config_all() {
     config_i3 "$1"
     config_i3blocks "$1"
@@ -71,6 +81,7 @@ config_all() {
     config_git "$1"
     config_vscode "$1"
     config_xresources "$1"
+    config_scripts "$1"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then

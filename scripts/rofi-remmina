@@ -1,0 +1,11 @@
+#!/bin/bash
+
+declare -A hosts
+for f in "$HOME/.remmina/"*.remmina; do
+	name=$(grep '^name=' "$f" | cut -d= -f2)
+	hosts[$name]=$f
+done
+
+selection=$(echo ${!hosts[@]} | rofi -show dmenu -dmenu -p 'Remmina: ' -sep ' ' -no-custom)
+
+remmina -c "${hosts[$selection]}"
