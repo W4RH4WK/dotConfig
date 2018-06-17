@@ -55,10 +55,6 @@ export WINEARCH="win32"
 export WINEPREFIX="$HOME/.wine32"
 
 # ------------------------------------------------------------ ALIAS
-open() {
-	(xdg-open "$@" &> /dev/null &)
-}
-
 mkcd() {
 	mkdir -p "$1" && cd "$1"
 }
@@ -75,6 +71,7 @@ tosh() {
 	mosh "$@" tmux attach-session
 }
 
+alias open="xdg-open"
 alias l="ls --classify --color=force --group-directories-first --human-readable -l"
 alias ll="l --all"
 alias ack="ack -r --smart-case --follow"
