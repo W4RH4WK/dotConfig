@@ -22,8 +22,9 @@
 [color]
     ui = true
 [core]
-    editor = vim
+    editor = nvim
     pager = less -+FX
+    autocrlf = false
 [http]
     postBuffer = 524288000
 [rerere]
