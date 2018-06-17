@@ -12,22 +12,24 @@ font pango:Ubuntu 10
 
 # Launch Applications
 
-bindsym $mod+e            exec x-terminal-emulator
-bindsym $mod+c            exec gnome-calculator
-bindsym $mod+f            exec nemo
-bindsym $mod+r            exec rofi -show run
-bindsym $mod+x            exec rofi -show ssh
-bindsym $mod+Shift+delete exec xkill
-bindsym $mod+slash        exec xcalib -i -a
-bindsym $mod+p            exec xrandr --auto
+bindsym $mod+e            exec exec x-terminal-emulator
+bindsym $mod+c            exec exec gnome-calculator
+bindsym $mod+f            exec exec nemo
+bindsym $mod+r            exec exec rofi -show run
+bindsym $mod+x            exec exec rofi -show ssh
+bindsym $mod+Shift+x      exec exec rofi-remmina
+bindsym $mod+Shift+delete exec exec xkill
+bindsym $mod+slash        exec exec xcalib -i -a
+bindsym $mod+p            exec exec rofi-display
+bindsym $mod+Shift+p      exec exec xrandr --auto
 
-bindsym --release Print             exec xfce4-screenshooter -f
-bindsym --release $mod+Print        exec xfce4-screenshooter -w
-bindsym --release Shift+Print       exec xfce4-screenshooter -r
+bindsym --release Print             exec exec xfce4-screenshooter -f
+bindsym --release $mod+Print        exec exec xfce4-screenshooter -w
+bindsym --release Shift+Print       exec exec xfce4-screenshooter -r
 
-bindsym $mod+BackSpace    exec dm-tool lock
+bindsym $mod+BackSpace    exec exec dm-tool lock
 
-bindsym XF86Tools         exec gnome-system-monitor
+bindsym XF86Tools         exec exec gnome-system-monitor
 
 # Window Management
 
@@ -62,7 +64,7 @@ bindsym $mod+w layout toggle split
 bindsym $mod+space       focus mode_toggle
 bindsym $mod+Shift+space floating toggle
 
-bindsym $mod+Tab    exec rofi -show window
+bindsym $mod+Tab    exec exec rofi -show window
 bindsym $mod+Delete kill
 
 new_window pixel
@@ -78,9 +80,9 @@ set $ws4 "4:  4  "
 set $ws5 "5:  5  "
 set $ws6 "6:  6  "
 set $ws7 "7:  7  "
-set $ws8 "8:  8  "
+set $ws8 "8:    "
 set $ws9 "9:    "
-set $ws0 "10:    "
+set $ws0 "10:    "
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -113,7 +115,7 @@ workspace_auto_back_and_forth yes
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+q exec exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes' 'i3-msg exit'"
 
 # colors
 set_from_resource $color_fg foreground
@@ -162,18 +164,18 @@ bar {
 
 # Autostart
 
-exec --no-startup-id light-locker
-exec --no-startup-id xsetroot -cursor_name left_ptr
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id exec light-locker
+exec --no-startup-id exec xsetroot -cursor_name left_ptr
+exec --no-startup-id exec nitrogen --restore
 
-exec --no-startup-id gnome-keyring-daemon --start --daemonize
-exec --no-startup-id lxpolkit
+exec --no-startup-id exec gnome-keyring-daemon --start --daemonize
+exec --no-startup-id exec lxpolkit
 
-exec --no-startup-id syndaemon -i 0.4 -t -k -d
+exec --no-startup-id exec syndaemon -i 0.4 -t -k -d
 
-exec --no-startup-id nm-applet
-#exec --no-startup-id pasystray
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id xfce4-volumed
+exec --no-startup-id exec nm-applet
+#exec --no-startup-id exec pasystray
+exec --no-startup-id exec xfce4-power-manager
+exec --no-startup-id exec xfce4-volumed
 
-exec --no-startup-id compton
+exec --no-startup-id exec compton
