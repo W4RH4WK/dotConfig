@@ -60,15 +60,15 @@ mkcd() {
 }
 
 tssh() {
-	ssh -t "$@" "tmux attach-session || tmux new-session"
+	ssh -t "$@" tmux new-session -A -s 0
 }
 
 autotssh() {
-	autossh -t "$@" "tmux attach-session || tmux new-session"
+	autossh -t "$@" tmux new-session -A -s 0
 }
 
 tosh() {
-	mosh "$@" tmux attach-session
+	mosh "$@" tmux new-session -A -s 0
 }
 
 alias open="xdg-open"
