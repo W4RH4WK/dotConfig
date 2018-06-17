@@ -1,39 +1,86 @@
 ! -- Color
-*.foreground: #ffffff
-*.background: #1c1c1c
-*.cursorColor: #ffffff
+*.foreground:   #fcfcfa
+*.background:   #2d2a2e
+*.cursorColor:  #fcfcfa
 
-*.color0:  #2e3436
-*.color8:  #4a545c
-*.color1:  #ff0064
-*.color9:  #ff0064
-*.color2:  #39ff00
-*.color10: #39ff00
-*.color3:  #ffff00
-*.color11: #ffff00
-*.color4:  #00b4ff
-*.color12: #00b4ff
-*.color5:  #fb22b0
-*.color13: #fb22b0
-*.color6:  #27e5f2
-*.color14: #27e5f2
-*.color7:  #555753
-*.color15: #555753
+! ---- Neon Arcade
+!*.foreground: #ffffff
+!*.background: #1c1c1c
+!*.cursorColor: #ffffff
+!*.color0:  #2e3436
+!*.color8:  #4a545c
+!*.color1:  #ff0064
+!*.color9:  #ff0064
+!*.color2:  #39ff00
+!*.color10: #39ff00
+!*.color3:  #ffff00
+!*.color11: #ffff00
+!*.color4:  #00b4ff
+!*.color12: #00b4ff
+!*.color5:  #fb22b0
+!*.color13: #fb22b0
+!*.color6:  #27e5f2
+!*.color14: #27e5f2
+!*.color7:  #555753
+!*.color15: #555753
 
-! -- Font
+! ---- Monokai Pro
+!*.foreground:   #fcfcfa
+!*.background:   #2d2a2e
+!*.cursorColor:  #fcfcfa
+!*.color0:       #2d2a2e
+!*.color8:       #727072
+!*.color1:       #ff6188
+!*.color9:       #ff6188
+!*.color2:       #a9dc76
+!*.color10:      #a9dc76
+!*.color3:       #ffd866
+!*.color11:      #ffd866
+!*.color4:       #fc9867
+!*.color12:      #fc9867
+!*.color5:       #ab9df2
+!*.color13:      #ab9df2
+!*.color6:       #78dce8
+!*.color14:      #78dce8
+!*.color7:       #fcfcfa
+!*.color15:      #fcfcfa
+
+! ---- Hyper Material
+*.color0:  #2d2a2e
+*.color8:  #403e41
+*.color1:  #e54b4b
+*.color9:  #ff5370
+*.color2:  #9ece58
+*.color10: #c3e88d
+*.color3:  #faed70
+*.color11: #ffcb6b
+*.color4:  #396fe2
+*.color12: #82aaff
+*.color5:  #bb80b3
+*.color13: #c792ea
+*.color6:  #2ddafd
+*.color14: #89ddff
+*.color7:  #d0d0d0
+*.color15: #ffffff
+
 Xft.autohint: true
 Xft.antialias: true
 Xft.hinting: true
-*.font: xft:Hack:size=11
+
+! -- Emacs
+Emacs.fontBackend: xft
 
 ! -- URxvt
+URxvt.font: xft:Hack:size=11
 URxvt.boldFont:
 URxvt.cursorBlink: true
 URxvt.iso14755: false
 URxvt.letterSpace: -1
 URxvt.matcher.button: 1
 URxvt.saveLines: 5000
-URxvt.scrollBar: false
+URxvt.scrollstyle: plain
+URxvt.scrollBar_right: true
+URxvt.scrollColor: #3d3d3d
 URxvt.scrollTtyKeypress: true
 URxvt.scrollTtyOutput: false
 URxvt.url-launcher: /usr/bin/x-www-browser
