@@ -6,6 +6,6 @@ for f in "$HOME/.remmina/"*.remmina; do
 	hosts[$name]=$f
 done
 
-selection=$(echo ${!hosts[@]} | rofi -show dmenu -dmenu -p 'Remmina: ' -sep ' ' -no-custom)
+selection=$(echo ${!hosts[@]} | rofi -show dmenu -dmenu -p 'Remmina: ' -sep ' ' -no-custom) || exit 1
 
 remmina -c "${hosts[$selection]}"

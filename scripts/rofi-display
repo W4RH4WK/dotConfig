@@ -1,10 +1,6 @@
 #!/bin/bash
 
-case $(echo auto laptop home work | rofi -show dmenu -dmenu -p 'Display: ' -sep ' ' -no-custom) in
-	auto)
-		xrandr --auto
-		;;
-
+case $(echo laptop home work | rofi -show dmenu -dmenu -p 'Display: ' -sep ' ' -no-custom) in
 	laptop)
 		xrandr --output eDP1 --auto --output DP2-1 --off --output DP2-2 --off
 		;;
