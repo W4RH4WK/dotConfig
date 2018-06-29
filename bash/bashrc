@@ -10,8 +10,10 @@ export PROMPT_COMMAND="history -a"
 shopt -s checkwinsize
 shopt -s globstar
 
-# ------------------------------------------------------------ EDITOR
-export EDITOR=/usr/bin/vim
+# ------------------------------------------------------------ TOOLS
+export EDITOR="/usr/bin/nvim"
+export PAGER="/usr/bin/nvim -R -c 'call Paging()' -"
+export MANPAGER="/usr/bin/nvim -R -c 'set filetype=man' -"
 
 # ------------------------------------------------------------ PROMPT
 __ret_ps1() {
@@ -68,15 +70,16 @@ autotssh() {
 }
 
 tosh() {
-	mosh "$@" tmux new-session -A -s 0
+	mosh -- "$@" tmux new-session -A -s 0
 }
 
 alias open="xdg-open"
 alias l="ls --classify --color=force --group-directories-first --human-readable -l"
 alias ll="l --all"
-alias ack="ack -r --smart-case --follow"
+alias ag="ag --smart-case --follow"
 alias tree="tree -F --dirsfirst"
 alias vim="nvim"
+alias view="nvim -R"
 
 # ------------------------------------------------------------ COMPLETION
 bind "set show-all-if-ambiguous on"
