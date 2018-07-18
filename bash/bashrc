@@ -8,6 +8,7 @@ export PROMPT_COMMAND="history -a"
 
 # ------------------------------------------------------------ BASIC
 shopt -s checkwinsize
+shopt -s dotglob
 shopt -s globstar
 
 # ------------------------------------------------------------ TOOLS
@@ -18,7 +19,7 @@ export MANPAGER="/usr/bin/nvim -R -c 'set filetype=man' -"
 # ------------------------------------------------------------ PROMPT
 __ret_ps1() {
 	if [[ $1 != 0 ]]; then
-		echo -n "$1 "
+		echo -n " $1"
 	fi
 }
 
@@ -39,7 +40,7 @@ Cyan='\[\e[1;36m\]'
 White='\[\e[1;37m\]'
 
 PROMPT_DIRTRIM=2
-PS1="$Cyan$debian_chroot$Red\$(__ret_ps1 \$?)$Blue\w$Yellow\$(__git_ps1)$Green > $NC"
+PS1="$Cyan$debian_chroot$Blue\w$Yellow\$(__git_ps1)$Red\$(__ret_ps1 \$?)$Green > $NC"
 PS2="$Green> $NC"
 
 # ------------------------------------------------------------ PATH
@@ -61,6 +62,12 @@ mkcd() {
 	mkdir -p "$1" && cd "$1"
 }
 
+f() {
+    local filename=$1
+    shift
+    find -iname "*$1*" "$@"
+}
+
 tssh() {
 	ssh -t "$@" tmux new-session -A -s 0
 }
@@ -73,13 +80,13 @@ tosh() {
 	mosh -- "$@" tmux new-session -A -s 0
 }
 
-alias open="xdg-open"
+alias ag="ag --smart-case --follow"
 alias l="ls --classify --color=force --group-directories-first --human-readable -l"
 alias ll="l --all"
-alias ag="ag --smart-case --follow"
+alias open="xdg-open"
 alias tree="tree -F --dirsfirst"
-alias vim="nvim"
 alias view="nvim -R"
+alias vim="nvim"
 
 # ------------------------------------------------------------ COMPLETION
 bind "set show-all-if-ambiguous on"
