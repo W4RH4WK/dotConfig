@@ -57,6 +57,14 @@ config_vscode() {
     mkdir -p "$HOME/.config/Code" "$DIR/vscode"
     copy "$HOME/.config/Code/User/settings.json"    "$DIR/vscode/settings.json"
     copy "$HOME/.config/Code/User/keybindings.json" "$DIR/vscode/keybindings.json"
+
+    if [[ "$1" == "pull" ]]; then
+        code --list-extensions > "$DIR/vscode/extensions.txt"
+    elif [[ "$1" == "push" ]]; then
+        while read ext; do
+            code --install-extension "$ext"
+        done < "$DIR/vscode/extensions.txt"
+    fi
 }
 
 config_xresources() {
