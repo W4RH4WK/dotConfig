@@ -18,15 +18,15 @@ export MANPAGER="/usr/bin/nvim -R -c 'set filetype=man' -"
 
 # ------------------------------------------------------------ PROMPT
 __ret_ps1() {
-	if [[ $1 != 0 ]]; then
-		echo -n " $1"
-	fi
+    if [[ $1 != 0 ]]; then
+        echo -n " $1"
+    fi
 }
 
 if [[ -r /etc/debian_chroot ]]; then
-	debian_chroot="[$(cat /etc/debian_chroot)] "
+    debian_chroot="[$(cat /etc/debian_chroot)] "
 else
-	debian_chroot=""
+    debian_chroot=""
 fi
 
 NC='\[\e[0m\]'
@@ -48,9 +48,9 @@ source "$HOME/.bash_path"
 
 # Node
 use-node() {
-	export NVM_DIR="$HOME/.nvm"
-	source "$NVM_DIR/nvm.sh"
-	source "$NVM_DIR/bash_completion"
+    export NVM_DIR="$HOME/.nvm"
+    source "$NVM_DIR/nvm.sh"
+    source "$NVM_DIR/bash_completion"
 }
 
 # ------------------------------------------------------------ WINE
@@ -59,7 +59,7 @@ export WINEPREFIX="$HOME/.wine32"
 
 # ------------------------------------------------------------ ALIAS
 mkcd() {
-	mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1"
 }
 
 f() {
@@ -69,15 +69,15 @@ f() {
 }
 
 tssh() {
-	ssh -t "$@" tmux new-session -A -s 0
+    ssh -t "$@" tmux new-session -A -s 0
 }
 
 autotssh() {
-	autossh -t "$@" tmux new-session -A -s 0
+    autossh -t "$@" tmux new-session -A -s 0
 }
 
 tosh() {
-	mosh -- "$@" tmux new-session -A -s 0
+    mosh -- "$@" tmux new-session -A -s 0
 }
 
 alias ag="ag --smart-case --follow"
@@ -93,5 +93,5 @@ bind "set show-all-if-ambiguous on"
 bind "set completion-ignore-case on"
 
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-	source /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
 fi

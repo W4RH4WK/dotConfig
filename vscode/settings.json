@@ -1,53 +1,109 @@
-// Place your settings in this file to overwrite the default settings
 {
+    // Editor View
     "editor.cursorBlinking": "solid",
     "editor.fontFamily": "Hack",
     "editor.fontSize": 14,
-    "editor.lineHeight": 0,
+    "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "boundary",
     "editor.rulers": [79],
-    "editor.quickSuggestions": false,
-    "editor.suggestOnTriggerCharacters": true,
+    "editor.smoothScrolling": false,
     "editor.wordWrap": "on",
+    "editor.wrappingIndent": "indent",
+    "debug.toolBarLocation": "docked",
 
+    // Editor Handling
+    "editor.autoIndent": false,
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.tabCompletion": true,
+
+    // Workbench
+    "workbench.startupEditor": "none",
+
+    // Window View
+    "window.menuBarVisibility": "toggle",
+    "window.title": "${rootName}${separator}${activeEditorShort}",
+    "window.zoomLevel": 0,
+
+    // File Handling
+    "files.exclude": {
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.stack-work": true
+    },
     "files.insertFinalNewline": true,
 
-    "window.openFilesInNewWindow": "off",
-    "window.zoomLevel": 0,
-    "window.title": "${rootName}${separator}${activeEditorShort}",
-    "window.menuBarVisibility": "toggle",
-
-    "workbench.statusBar.visible": true,
-    "workbench.activityBar.visible": true,
-
-    "zenMode.hideTabs": true,
-
     // Terminal
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontWeightBold": "normal",
 
     // Git
     "git.autofetch": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.advanced.telemetry.enabled": false,
 
-    // Style
-    "vsicons.dontShowNewVersionMessage": true,
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Monokai GRS",
+    // Language
+    "spellright.language": "en_GB",
 
-    // C++
-    //"C_Cpp.clang_format_path": "/usr/bin/clang-format-3.7",
-    // "C_Cpp.autocomplete": "Disabled",
+    // Typescript
+    "typescript.check.npmIsInstalled": false,
 
-    // "clang.cflags": ["-std=c99"],
-    // "clang.cxxflags": ["-std=c++14"],
+    // All Autocomplete
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "other": false,
+            "comments": false,
+            "strings": false
+        }
+    },
 
-    // Haskell
-    // "haskelly.codeCompletion": false,
+    // Path Completion
+    "path-autocomplete.extensionOnImport": true,
+    "path-autocomplete.triggerOutsideStrings": true,
 
-    // Rust
-    // "rust.rustLangSrcPath": "/home/w4rh4wk/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src",
-    // "rust.cargoHomePath": "/home/w4rh4wk/.cargo",
-    // "rust.showOutput": false,
+    // Open in Vim
+    "alt-editor.binary": "x-terminal-emulator",
+    "alt-editor.args": "-e nvim '+cd ${workspaceRoot}|call cursor({line},{column})|norm zz' '{filename}'",
+
+    // HTML / CSS
+    "html.suggest.angular1": false,
+    "html.suggest.ionic": false,
+
+    // LaTeX
+    "latex-workshop.latex.outputDir": "latex.out/",
+    "latex-workshop.latex.toolchain": [
+        {
+            "command": "latexrun",
+            "args": [
+                "--latex-args=-synctex=1",
+                "%DOC%"
+            ]
+        }
+    ],
+
+    // C / C++
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format",
+    // "C_Cpp.intelliSenseEngineFallback": "Disabled",
+    "C_Cpp.intelliSenseEngine": "Default",
 
     // Misc
     "telemetry.enableTelemetry": false,
-    "workbench.welcome.enabled": false
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "explorer.confirmDragAndDrop": false,
+    "gitlens.historyExplorer.enabled": true
 }

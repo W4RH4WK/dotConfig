@@ -1,12 +1,119 @@
-// Place your key bindings in this file to overwrite the defaults
 [
-    { "key": "ctrl+q", "command": "workbench.action.quickOpenView"},
-    { "key": "ctrl+q", "command": "workbench.action.quickOpenNavigateNext",
-                          "when": "inQuickOpen" },
-
-    { "key": "ctrl+`", "command": "workbench.action.terminal.focus",
-                          "when": "!terminalFocus" },
-
-    { "key": "ctrl+shift+u", "command": "unicode-latex.insertMathSymbol",
-                                "when": "editorTextFocus && !editorReadonly" }
+    // Cursor Keys
+    // -- Alt
+    {
+        "key": "alt+left",
+        "command": "-workbench.action.navigateBack"
+    },
+    {
+        "key": "alt+left",
+        "command": "editor.action.outdentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+right",
+        "command": "-workbench.action.navigateForward"
+    },
+    {
+        "key": "alt+right",
+        "command": "editor.action.indentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // -- Ctrl + Alt
+    {
+        "key": "ctrl+alt+up",
+        "command": "-editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+up",
+        "command": "editor.action.copyLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+down",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // -- Shift + Alt
+    {
+        "key": "shift+alt+up",
+        "command": "-editor.action.copyLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "-editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    // Quit
+    {
+        "key": "ctrl+shift+w",
+        "command": "-workbench.action.closeWindow"
+    },
+    // Quick Action
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "workbench.action.quickOpenView"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "workbench.action.quickOpenNavigateNext",
+        "when": "inQuickOpen"
+    },
+    // Reset Zoom
+    {
+        "key": "ctrl+0",
+        "command": "-workbench.action.focusSideBar"
+    },
+    {
+        "key": "ctrl+0",
+        "command": "workbench.action.zoomReset"
+    },
+    // Tags
+    {
+        "key": "alt+t",
+        "command": "-extension.ctagsJumpBack",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+t",
+        "command": "extension.findCTags",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "-extension.findCTags",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+t",
+        "command": "extension.ctagsJumpBack",
+        "when": "editorTextFocus"
+    },
+    // Align
+    {
+        "key": "ctrl+alt+a",
+        "command": "simple-alignment.align",
+        "when": "editorTextFocus"
+    }
 ]

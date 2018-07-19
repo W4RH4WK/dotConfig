@@ -12,9 +12,9 @@
     s = status --short --branch
     g = grep --break --heading --line-number
     ff = merge --ff-only
+    mnc = merge --no-ff --no-commit
     puff = pull --ff-only
     purr = pull --rebase
-    mnc = merge --no-ff --no-commit
     ignore = update-index --assume-unchanged
     unignore = update-index --no-assume-unchanged
     ignored = !git ls-files -v | grep '^[[:lower:]]'
