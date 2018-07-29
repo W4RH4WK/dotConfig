@@ -28,7 +28,7 @@
     // Window View
     "window.menuBarVisibility": "toggle",
     "window.title": "${rootName}${separator}${activeEditorShort}",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
 
     // File Handling
     "files.exclude": {

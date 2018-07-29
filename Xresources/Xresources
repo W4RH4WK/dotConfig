@@ -27,7 +27,7 @@ Xft.hinting: true
 
 ! -- URxvt
 URxvt.font: xft:Hack:size=11
-URxvt.boldFont:
+!URxvt.boldFont:
 URxvt.cursorBlink: true
 URxvt.iso14755: false
 URxvt.letterSpace: -1

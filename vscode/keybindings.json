@@ -80,6 +80,17 @@
         "command": "workbench.action.quickOpenNavigateNext",
         "when": "inQuickOpen"
     },
+    // Format Document
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
     // Reset Zoom
     {
         "key": "ctrl+0",
