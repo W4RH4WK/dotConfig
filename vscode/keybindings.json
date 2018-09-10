@@ -69,27 +69,29 @@
     // Quick Action
     {
         "key": "ctrl+q",
-        "command": "-workbench.action.quit"
+        "command": "-workbench.action.quit",
+        "when": "isLinux"
     },
     {
         "key": "ctrl+q",
-        "command": "workbench.action.quickOpenView"
+        "command": "workbench.action.quickOpenView",
+        "when": "isLinux",
     },
     {
         "key": "ctrl+q",
         "command": "workbench.action.quickOpenNavigateNext",
-        "when": "inQuickOpen"
+        "when": "isLinux && inQuickOpen"
     },
     // Format Document
     {
         "key": "shift+alt+f",
         "command": "editor.action.formatDocument",
-        "when": "editorTextFocus && !editorReadonly"
+        "when": "isLinux && editorTextFocus && !editorReadonly"
     },
     {
         "key": "ctrl+shift+i",
         "command": "-editor.action.formatDocument",
-        "when": "editorTextFocus && !editorReadonly"
+        "when": "isLinux && editorTextFocus && !editorReadonly"
     },
     // Reset Zoom
     {
@@ -100,7 +102,13 @@
         "key": "ctrl+0",
         "command": "workbench.action.zoomReset"
     },
-    // Tags
+    // Simple Alignment
+    {
+        "key": "ctrl+alt+a",
+        "command": "simple-alignment.align",
+        "when": "editorTextFocus"
+    },
+    // ctagsx
     {
         "key": "alt+t",
         "command": "-extension.ctagsJumpBack",
@@ -119,12 +127,6 @@
     {
         "key": "shift+alt+t",
         "command": "extension.ctagsJumpBack",
-        "when": "editorTextFocus"
-    },
-    // Align
-    {
-        "key": "ctrl+alt+a",
-        "command": "simple-alignment.align",
         "when": "editorTextFocus"
     }
 ]

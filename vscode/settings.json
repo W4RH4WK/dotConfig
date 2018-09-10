@@ -1,5 +1,6 @@
 {
     // Editor View
+    "debug.toolBarLocation": "docked",
     "editor.cursorBlinking": "solid",
     "editor.fontFamily": "Hack",
     "editor.fontSize": 14,
@@ -7,10 +8,10 @@
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [79],
-    "editor.smoothScrolling": false,
     "editor.wordWrap": "on",
-    "editor.wrappingIndent": "indent",
-    "debug.toolBarLocation": "docked",
+    "window.menuBarVisibility": "toggle",
+    "window.title": "${rootName}${separator}${activeEditorShort}",
+    "window.zoomLevel": 0,
 
     // Editor Handling
     "editor.autoIndent": false,
@@ -19,91 +20,32 @@
         "comments": false,
         "strings": false
     },
-    "editor.suggestOnTriggerCharacters": true,
     "editor.tabCompletion": true,
 
-    // Workbench
-    "workbench.startupEditor": "none",
-
-    // Window View
-    "window.menuBarVisibility": "toggle",
-    "window.title": "${rootName}${separator}${activeEditorShort}",
-    "window.zoomLevel": 1,
-
     // File Handling
-    "files.exclude": {
-        "**/.git": true,
-        "**/.hg": true,
-        "**/.stack-work": true
-    },
     "files.insertFinalNewline": true,
-
-    // Terminal
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.fontWeightBold": "normal",
+    "telemetry.enableTelemetry": false,
 
     // Git
-    "git.autofetch": false,
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
     "gitlens.advanced.telemetry.enabled": false,
 
-    // Language
-    "spellright.language": "en_GB",
-
     // Typescript
     "typescript.check.npmIsInstalled": false,
 
-    // All Autocomplete
-    "[markdown]": {
-        "editor.quickSuggestions": {
-            "other": false,
-            "comments": false,
-            "strings": false
-        }
-    },
+    // Language
+    "spellright.language": "en_GB",
 
-    // Path Completion
-    "path-autocomplete.extensionOnImport": true,
-    "path-autocomplete.triggerOutsideStrings": true,
-
-    // Open in Vim
+    // Open in Editor
     "alt-editor.binary": "x-terminal-emulator",
-    "alt-editor.args": "-e nvim '+cd ${workspaceRoot}|call cursor({line},{column})|norm zz' '{filename}'",
+    "alt-editor.args": "-e nvim '+call ProjectRootCD()|call cursor({line},{column})|norm zz' '{filename}'",
 
-    // HTML / CSS
-    "html.suggest.angular1": false,
-    "html.suggest.ionic": false,
-
-    // LaTeX
-    "latex-workshop.latex.outputDir": "latex.out/",
-    "latex-workshop.latex.toolchain": [
-        {
-            "command": "latexrun",
-            "args": [
-                "--latex-args=-synctex=1",
-                "%DOC%"
-            ]
-        }
-    ],
+    // HTML
+    "html.autoClosingTags": false,
 
     // C / C++
-    "C_Cpp.clang_format_path": "/usr/bin/clang-format",
-    // "C_Cpp.intelliSenseEngineFallback": "Disabled",
-    "C_Cpp.intelliSenseEngine": "Default",
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format"
 
     // Misc
-    "telemetry.enableTelemetry": false,
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "explorer.confirmDragAndDrop": false,
-    "gitlens.historyExplorer.enabled": true
 }
