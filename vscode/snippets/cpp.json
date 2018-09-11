@@ -1,0 +1,154 @@
+{
+  "Header Guard": {
+    "prefix": "hg",
+    "body": [
+      "#ifndef ${1:FILE}",
+      "#define ${1:FILE}",
+      "",
+      "$2",
+      "",
+      "#endif // ${1:FILE}"
+    ]
+  },
+  "#include <...>": {
+    "prefix": "inc",
+    "body": "#include <${1:iostream}>"
+  },
+  "#include \"...\"": {
+    "prefix": "in",
+    "body": "#include \"${1:header}\""
+  },
+  "#ifdef ... #endif": {
+    "prefix": "ifdef",
+    "body": [
+      "#ifdef ${1:condition}",
+      "",
+      "$2",
+      "",
+      "#endif // ${1:condition}"
+    ]
+  },
+  "Doc Comment": {
+    "prefix": "/**",
+    "body": [
+      "/** ${1:brief}",
+      " *",
+      " * ${2:description}",
+      " */"
+    ]
+  },
+  "Seperator": {
+    "prefix": "//-",
+    "body": "// --------------------------------------------------------"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$2",
+      "}"
+    ]
+  },
+  "If-Else Statement": {
+    "prefix": "ife",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$2",
+      "} else {",
+      "\t$3",
+      "}"
+    ]
+  },
+  "Switch Statement": {
+    "prefix": "sw",
+    "body": [
+      "switch (${1:var}) {",
+      "case ${2:value}:",
+      "\t$3",
+      "\tbreak;",
+      "default:",
+      "\t$4",
+      "}"
+    ]
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (${1:int} ${2:i} = ${3:0}; ${2:i} < ${4:length}; ++${2:i}) {",
+      "\t$5",
+      "}"
+    ]
+  },
+  "For Loop (reverse)": {
+    "prefix": "forr",
+    "body": [
+      "for (${1:int} ${2:i} = ${3:length} - 1; ${2:i} >= ${4:0}; --${2:i}) {",
+      "\t$5",
+      "}"
+    ]
+  },
+  "For Each Loop": {
+    "prefix": "fore",
+    "body": [
+      "for (const auto& ${1:x} : ${2:xs}) {",
+      "\t$3",
+      "}"
+    ]
+  },
+  "Out": {
+    "prefix": "out",
+    "body": "std::cout << \"${1:var}: \" << ${1:var} << \"\\n\";"
+  },
+  "Err": {
+    "prefix": "err",
+    "body": "std::cerr << \"${1:var}: \" << ${1:var} << \"\\n\";"
+  },
+  "Namespace": {
+    "prefix": "ns",
+    "body": [
+      "namespace ${1:name} {",
+      "",
+      "$2",
+      "",
+      "} // end namespace ${1:name}"
+    ]
+  },
+  "Dynamic Cast": {
+    "prefix": "dyn",
+    "body": [
+      "if (auto ${1:new_var} = dynamic_cast<${2:type}>(${3:var})) {",
+      "\t$4",
+      "}"
+    ]
+  },
+  "Class Template": {
+    "prefix": "cls",
+    "body": [
+      "class ${1:name} {",
+      "  public:",
+      "\t${1:name}();",
+      "",
+      "\t${1:name}(const ${1:name}&) = delete;",
+      "\t${1:name}& operator=(const ${1:name}&) = delete;",
+      "",
+      "\t${1:name}(const ${1:name}&&) noexcept = delete;",
+      "\t${1:name}& operator=(const ${1:name}&&) noexcept = delete;",
+      "",
+      "\t~${1:name}() noexcept;",
+      "",
+      "  private:",
+      "\t$2",
+      "};"
+    ]
+  },
+  "Try-Catch Block": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t$1",
+      "} catch (std::exception& ex) {",
+      "\t$2",
+      "}"
+    ]
+  }
+}

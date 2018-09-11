@@ -57,6 +57,7 @@ config_vscode() {
     mkdir -p "$HOME/.config/Code" "$DIR/vscode"
     copy "$HOME/.config/Code/User/settings.json"    "$DIR/vscode/settings.json"
     copy "$HOME/.config/Code/User/keybindings.json" "$DIR/vscode/keybindings.json"
+    copy "$HOME/.config/Code/User/snippets" "$DIR/vscode/snippets"
 
     if [[ "$1" == "pull" ]]; then
         code --list-extensions > "$DIR/vscode/extensions.txt"
