@@ -32,9 +32,10 @@ config_i3blocks() {
 
 config_bash() {
     mkdir -p "$DIR/bash"
-    copy "$HOME/.bashrc"    "$DIR/bash/bashrc"
-    copy "$HOME/.bash_path" "$DIR/bash/path"
-    copy "$HOME/.profile"   "$DIR/bash/profile"
+    copy "$HOME/.bashrc"     "$DIR/bash/bashrc"
+    copy "$HOME/.env.sh"     "$DIR/bash/env.sh"
+    copy "$HOME/.profile"    "$DIR/bash/profile"
+    copy "$HOME/.xsessionrc" "$DIR/bash/xsessionrc"
 }
 
 config_compton() {

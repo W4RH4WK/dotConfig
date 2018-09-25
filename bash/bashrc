@@ -11,11 +11,6 @@ shopt -s checkwinsize
 shopt -s dotglob
 shopt -s globstar
 
-# ------------------------------------------------------------ TOOLS
-export EDITOR="/usr/bin/nvim"
-export PAGER="/usr/bin/nvim -R -c 'call Paging()' -"
-export MANPAGER="/usr/bin/nvim -R -c 'set filetype=man' -"
-
 # ------------------------------------------------------------ PROMPT
 PROMPT_DIRTRIM=2
 
@@ -55,29 +50,11 @@ __set_ps1() {
 
 __set_ps1
 
-# ------------------------------------------------------------ PATH
-source "$HOME/.bash_path"
-
-# Node
-use-node() {
-    export NVM_DIR="$HOME/.nvm"
-    source "$NVM_DIR/nvm.sh"
-    source "$NVM_DIR/bash_completion"
-}
-
-# ------------------------------------------------------------ WINE
-export WINEARCH="win32"
-export WINEPREFIX="$HOME/.wine32"
-
 # ------------------------------------------------------------ ALIAS
-mkcd() {
-    mkdir -p "$1" && cd "$1"
-}
-
 f() {
     local filename=$1
     shift
-    find -iname "*$1*" "$@"
+    find -iname "*$filename*" "$@"
 }
 
 tssh() {
