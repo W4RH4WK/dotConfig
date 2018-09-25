@@ -53,8 +53,7 @@ bindsym $mod+Shift+s focus child
 
 bindsym $mod+grave move scratchpad
 
-bindsym $mod+n split h
-bindsym $mod+v split v
+bindsym $mod+v split toggle
 
 bindsym $mod+backslash fullscreen toggle
 
@@ -145,7 +144,7 @@ client.background       $color_bg
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #tray_output eDP1
-    font pango:Ubuntu Nerd Font 16
+    font pango:Ubuntu Nerd Font 14
 
 
     strip_workspace_numbers yes
@@ -174,8 +173,9 @@ exec --no-startup-id exec lxpolkit
 exec --no-startup-id exec syndaemon -i 0.4 -t -k -d
 
 exec --no-startup-id exec nm-applet
-#exec --no-startup-id exec pasystray
+#exec --no-startup-id exec cmst --minimized
+exec --no-startup-id exec pasystray
 exec --no-startup-id exec xfce4-power-manager
-exec --no-startup-id exec xfce4-volumed
+exec --no-startup-id exec $HOME/.local/bin/xfce4-volumed-pulse
 
 exec --no-startup-id exec compton
