@@ -38,11 +38,6 @@ config_bash() {
     copy "$HOME/.xsessionrc" "$DIR/bash/xsessionrc"
 }
 
-config_compton() {
-    mkdir -p "$DIR/compton"
-    copy "$HOME/.config/compton.conf" "$DIR/compton/compton.conf"
-}
-
 config_git() {
     mkdir -p "$DIR/git"
     copy "$HOME/.gitconfig" "$DIR/git/config"
@@ -87,7 +82,6 @@ config_all() {
     config_i3 "$1"
     config_i3blocks "$1"
     config_bash "$1"
-    config_compton "$1"
     config_git "$1"
     config_vscode "$1"
     config_xresources "$1"
