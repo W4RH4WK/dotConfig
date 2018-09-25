@@ -44,12 +44,12 @@ URxvt.background: [95]#1c1c1c
 URxvt.keysym.C-minus: resize-font:smaller
 URxvt.keysym.C-equal:  resize-font:bigger
 URxvt.keysym.C-0: resize-font:reset
-URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.perl-ext-common: default,confirm-paste,matcher,resize-font
 URxvt.internalBorder: 8
-
 URxvt.urgentOnBell: true
 
 ! -- rofi
+rofi.font: Ubuntu 12
 rofi.modi: run,ssh,window
 rofi.sidebar-mode: true
 rofi.theme: sidestyle.rasi
