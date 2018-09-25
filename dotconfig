@@ -70,12 +70,12 @@ config_xresources() {
 }
 
 config_scripts() {
-	mkdir -p "$DIR/scripts"
-	copy "$HOME/.local/bin/lt"           "$DIR/scripts/lt"
-	copy "$HOME/.local/bin/mailto"       "$DIR/scripts/mailto"
-	copy "$HOME/.local/bin/rofi-display" "$DIR/scripts/rofi-display"
-	copy "$HOME/.local/bin/rofi-remmina" "$DIR/scripts/rofi-remmina"
-	copy "$HOME/.local/bin/xdg-open"     "$DIR/scripts/xdg-open"
+    mkdir -p "$DIR/scripts"
+    copy "$HOME/.local/bin/lt"           "$DIR/scripts/lt"
+    copy "$HOME/.local/bin/mailto"       "$DIR/scripts/mailto"
+    copy "$HOME/.local/bin/rofi-display" "$DIR/scripts/rofi-display"
+    copy "$HOME/.local/bin/rofi-remmina" "$DIR/scripts/rofi-remmina"
+    copy "$HOME/.local/bin/xdg-open"     "$DIR/scripts/xdg-open"
 }
 
 config_all() {
