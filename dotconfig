@@ -78,6 +78,10 @@ config_scripts() {
     copy "$HOME/.local/bin/xdg-open"     "$DIR/scripts/xdg-open"
 }
 
+config_urxvt() {
+    copy "$HOME/.urxvt" "$DIR/urxvt"
+}
+
 config_all() {
     config_i3 "$1"
     config_i3blocks "$1"
@@ -86,6 +90,7 @@ config_all() {
     config_vscode "$1"
     config_xresources "$1"
     config_scripts "$1"
+    config_urxvt "$1"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
