@@ -7,8 +7,6 @@
 
 	text-color: @fg1-color;
 	background-color: rgba(0, 0, 0, 0.6);
-
-	font: "Hack Nerd Font 12";
 }
 
 #window {
@@ -44,13 +42,11 @@
 }
 
 #button {
-	font: "Hack Nerd Font 12";
 	padding: 0.7em;
 	background-color: @bg1-color;
 }
 
 #button selected {
-	font: "Hack Nerd Font 12";
 	color: @bg1-color;
 	background-color: @fg1-color;
 }
@@ -64,12 +60,10 @@
 }
 
 #prompt {
-	font: "Hack Nerd Font 12";
 	background-color: @bg1-color;
 }
 
 #entry {
-	font: "Hack Nerd Font 12";
 	width: 42em;
 	background-color: @bg1-color;
 }
@@ -85,7 +79,6 @@
 }
 
 #element {
-	font: "Hack Nerd Font 12";
 	padding: 0.7em 2em 0.7em 2em;
 	background-color: @bg1-color;
 }
