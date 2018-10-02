@@ -1,5 +1,5 @@
 {
-    // Editor View
+    // View
     "debug.toolBarLocation": "docked",
     "editor.cursorBlinking": "solid",
     "editor.fontFamily": "Hack",
@@ -12,8 +12,9 @@
     "window.menuBarVisibility": "toggle",
     "window.title": "${rootName}${separator}${activeEditorShort}",
     "window.zoomLevel": 0,
+    "workbench.startupEditor": "none",
 
-    // Editor Handling
+    // Handling
     "editor.autoIndent": false,
     "editor.quickSuggestions": {
         "other": false,
@@ -21,12 +22,11 @@
         "strings": false
     },
     "editor.tabCompletion": true,
-
-    // File Handling
     "files.insertFinalNewline": true,
     "telemetry.enableTelemetry": false,
 
     // Git
+    "git.autofetch": false,
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
     "gitlens.advanced.telemetry.enabled": false,
@@ -34,8 +34,10 @@
     // Typescript
     "typescript.check.npmIsInstalled": false,
 
-    // Language
-    "spellright.language": "en_GB",
+    // ------------------------------------------------------------- Extensions
+
+    // Spell Right
+    "spellright.groupDictionaries": false,
 
     // Open in Editor
     "alt-editor.binary": "x-terminal-emulator",
