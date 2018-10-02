@@ -66,6 +66,15 @@
         "key": "ctrl+shift+w",
         "command": "-workbench.action.closeWindow"
     },
+    // Settings
+    {
+        "key": "ctrl+,",
+        "command": "-workbench.action.openSettings"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "workbench.action.openSettingsJson"
+    },
     // Quick Action
     {
         "key": "ctrl+q",
