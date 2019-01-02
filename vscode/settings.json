@@ -2,14 +2,12 @@
     // View
     "debug.toolBarLocation": "docked",
     "editor.cursorBlinking": "solid",
-    "editor.fontFamily": "Hack",
-    "editor.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [79],
+    "editor.smoothScrolling": true,
     "editor.wordWrap": "on",
-    "window.menuBarVisibility": "toggle",
     "window.title": "${rootName}${separator}${activeEditorShort}",
     "window.zoomLevel": 0,
     "workbench.startupEditor": "none",
@@ -21,33 +19,44 @@
         "comments": false,
         "strings": false
     },
-    "editor.tabCompletion": true,
+    "editor.tabCompletion": "onlySnippets",
     "files.insertFinalNewline": true,
     "telemetry.enableTelemetry": false,
 
     // Git
     "git.autofetch": false,
-    "gitlens.codeLens.enabled": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.advanced.telemetry.enabled": false,
 
     // Typescript
     "typescript.check.npmIsInstalled": false,
 
     // ------------------------------------------------------------- Extensions
 
+    // Bracket Pair Colorizer
+    "bracketPairColorizer.showHorizontalScopeLine": false,
+
     // Spell Right
     "spellright.groupDictionaries": false,
+    "spellright.language": [
+        "en-US"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex"
+    ],
 
     // Open in Editor
     "alt-editor.binary": "x-terminal-emulator",
     "alt-editor.args": "-e nvim '+call ProjectRootCD()|call cursor({line},{column})|norm zz' '{filename}'",
 
-    // HTML
+    // HTML / CSS / JavaScript
     "html.autoClosingTags": false,
+    "javascript.autoClosingTags": false,
 
     // C / C++
-    "C_Cpp.clang_format_path": "/usr/bin/clang-format"
+    "C_Cpp.default.cppStandard": "c++17",
 
-    // Misc
+    // Go
+    "[go]": {
+        "editor.formatOnSave": false
+    }
 }
