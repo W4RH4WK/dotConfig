@@ -8,26 +8,10 @@ usage() {
     echo "Usage: $0 <pull | push> <PROGRAM | all>"
     echo
     echo "  PROGRAM:"
-    echo "      i3"
-    echo "      i3blocks"
     echo "      bash"
     echo "      git"
-    echo "      rofi"
     echo "      vscode"
-    echo "      xresources"
-    echo "      scripts"
     echo
-}
-
-config_i3() {
-    mkdir -p "$DIR/i3"
-    copy "$HOME/.config/i3/config" "$DIR/i3/config"
-}
-
-config_i3blocks() {
-    mkdir -p "$DIR/i3blocks"
-    copy "$HOME/.config/i3/i3blocks.conf" "$DIR/i3blocks/i3blocks.conf"
-    copy "$HOME/.config/i3/i3blocks"      "$DIR/i3blocks/i3blocks"
 }
 
 config_bash() {
@@ -42,11 +26,6 @@ config_git() {
     mkdir -p "$DIR/git"
     copy "$HOME/.gitconfig" "$DIR/git/config"
     sed '/token = /d' -i "$DIR/git/config"
-}
-
-config_rofi() {
-    mkdir -p "$DIR/rofi"
-    copy "$HOME/.config/rofi" "$DIR/rofi"
 }
 
 config_vscode() {
@@ -64,33 +43,10 @@ config_vscode() {
     fi
 }
 
-config_xresources() {
-    mkdir -p "$DIR/Xresources"
-    copy "$HOME/.Xresources" "$DIR/Xresources/Xresources"
-}
-
-config_scripts() {
-    mkdir -p "$DIR/scripts"
-    copy "$HOME/.local/bin/lt"           "$DIR/scripts/lt"
-    copy "$HOME/.local/bin/mailto"       "$DIR/scripts/mailto"
-    copy "$HOME/.local/bin/rofi-display" "$DIR/scripts/rofi-display"
-    copy "$HOME/.local/bin/rofi-remmina" "$DIR/scripts/rofi-remmina"
-    copy "$HOME/.local/bin/xdg-open"     "$DIR/scripts/xdg-open"
-}
-
-config_urxvt() {
-    copy "$HOME/.urxvt" "$DIR/urxvt"
-}
-
 config_all() {
-    config_i3 "$1"
-    config_i3blocks "$1"
     config_bash "$1"
     config_git "$1"
     config_vscode "$1"
-    config_xresources "$1"
-    config_scripts "$1"
-    config_urxvt "$1"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then

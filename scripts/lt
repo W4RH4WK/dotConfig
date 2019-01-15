@@ -1,3 +1,0 @@
-#!/bin/bash
-
-GTK_THEME=Arc GTK2_RC_FILES=/usr/share/themes/Arc/gtk-2.0/gtkrc "$@"
