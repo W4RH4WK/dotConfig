@@ -2,15 +2,18 @@
 
 set -e
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+readonly APPDATA="/mnt/c/Users/$USER/AppData"
 
 usage() {
-    echo "Usage: $0 <pull | push> <PROGRAM | all>"
+    echo "Usage: $0 <pull | push> <PROGRAM>"
     echo
     echo "  PROGRAM:"
     echo "      bash"
     echo "      git"
     echo "      vscode"
+    echo "      vs-snippets"
     echo
 }
 
@@ -32,7 +35,7 @@ config_vscode() {
     mkdir -p "$HOME/.config/Code" "$DIR/vscode"
     copy "$HOME/.config/Code/User/settings.json"    "$DIR/vscode/settings.json"
     copy "$HOME/.config/Code/User/keybindings.json" "$DIR/vscode/keybindings.json"
-    copy "$HOME/.config/Code/User/snippets" "$DIR/vscode/snippets"
+    copy "$HOME/.config/Code/User/snippets"         "$DIR/vscode/snippets"
 
     if [[ "$1" == "pull" ]]; then
         code --list-extensions > "$DIR/vscode/extensions.txt"
@@ -43,10 +46,9 @@ config_vscode() {
     fi
 }
 
-config_all() {
-    config_bash "$1"
-    config_git "$1"
-    config_vscode "$1"
+config_vs-snippets() {
+    mkdir -p "$APPDATA/Roaming/VisualAssist/Autotext"     "$DIR/vs"
+    copy "$APPDATA/Roaming/VisualAssist/Autotext/cpp.tpl" "$DIR/vs/cpp.tpl"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
