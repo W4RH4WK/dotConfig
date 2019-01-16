@@ -18,22 +18,17 @@
     ignore = update-index --assume-unchanged
     unignore = update-index --no-assume-unchanged
     ignored = !git ls-files -v | grep '^[[:lower:]]'
-    gud = !cat $HOME/Pictures/praise_the_sun.txt
 [color]
     ui = true
 [core]
     editor = nvim
     autocrlf = false
-[http]
-    postBuffer = 524288000
-[rerere]
-    enabled = true
 [push]
     default = simple
-[grep]
-    extendRegexp = true
-    lineNumber = true
 [diff]
     tool = vimdiff
 [merge]
     tool = vimdiff
+    conflictstyle = diff3
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
