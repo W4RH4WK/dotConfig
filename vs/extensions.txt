@@ -1,0 +1,8 @@
+ClangFormat
+Comment Reflower
+EditorConfig Language Service
+Structure Visualizer
+Subword Navigation
+Toggle Comment
+Trailing Whitespace Visualizer
+Visual Assist

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserSettings>
+    <ApplicationIdentity version="15.0" />
+    <ToolsOptions>
+        <ToolsOptionsCategory name="Environment" RegisteredName="Environment">
+            <ToolsOptionsSubCategory name="RoamingSettings" RegisteredName="RoamingSettings" PackageName="Roaming Manager Package">
+                <PropertyValue name="RoamingEnabled">false</PropertyValue>
+            </ToolsOptionsSubCategory>
+            <ToolsOptionsSubCategory name="Startup" RegisteredName="Startup" PackageName="Visual Studio Environment Package">
+                <PropertyValue name="OnStartUp">4</PropertyValue>
+            </ToolsOptionsSubCategory>
+        </ToolsOptionsCategory>
+        <ToolsOptionsCategory name="TextEditor" RegisteredName="TextEditor">
+            <ToolsOptionsSubCategory name="C/C++" RegisteredName="C/C++" PackageName="Text Management Package">
+                <PropertyValue name="ShowNavigationBar">false</PropertyValue>
+                <PropertyValue name="UseMapMode">true</PropertyValue>
+            </ToolsOptionsSubCategory>
+            <ToolsOptionsSubCategory name="C/C++ Specific" RegisteredName="C/C++ Specific" PackageName="Visual C++ Language Manager Package">
+                <PropertyValue name="AutoFormatOnClosingBrace">false</PropertyValue>
+                <PropertyValue name="AutoFormatOnPaste2">0</PropertyValue>
+                <PropertyValue name="AutoFormatOnSemicolon">false</PropertyValue>
+                <PropertyValue name="DisableMemberListExpansions">true</PropertyValue>
+                <PropertyValue name="DisableMemberListKeywords">true</PropertyValue>
+                <PropertyValue name="EnableClangFormatSupport">false</PropertyValue>
+                <PropertyValue name="MemberListDotToArrow_1">false</PropertyValue>
+                <PropertyValue name="RenameRenameComments">false</PropertyValue>
+            </ToolsOptionsSubCategory>
+        </ToolsOptionsCategory>
+    </ToolsOptions>
+    <Category name="Environment_Group" RegisteredName="Environment_Group">
+        <Category name="Environment_FontsAndColors" Category="{1EDA5DD4-927A-43a7-810E-7FD247D0DA1D}" Package="{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}" RegisteredName="Environment_FontsAndColors" PackageName="Visual Studio Environment Package">
+            <PropertyValue name="Version">2</PropertyValue>
+            <FontsAndColors Version="2.0">
+                <Theme Id="{1DED0138-47CE-435E-84EF-9EC1F439B749}" />
+                <Categories>
+                    <Category GUID="{75A05685-00A8-4DED-BAE5-E7A50BFA929A}" FontIsDefault="Yes">
+                        <Items>
+                            <Item Name="BlockStructureClass" Foreground="0x00960096" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureConditional" Foreground="0x0000FF00" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureLoop" Foreground="0x000000FF" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureMethod" Foreground="0x00808080" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureUnknown" Foreground="0x00282828" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureToolTipClass" Foreground="0x00960096" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureToolTipConditional" Foreground="0x0000FF00" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureToolTipLoop" Foreground="0x000000FF" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureToolTipMethod" Foreground="0x00808080" Background="0x02000000" BoldFont="No" />
+                            <Item Name="BlockStructureToolTipUnknown" Foreground="0x00282828" Background="0x02000000" BoldFont="No" />
+                            <Item Name="ScrollBarMethodHighlight" Foreground="0x00808080" Background="0x02000000" BoldFont="No" />
+                            <Item Name="MethodSeparator" Foreground="0x00808080" Background="0x02000000" BoldFont="No" />
+                            <Item Name="XML Doc Comment" Foreground="0x004AA657" Background="0x01000001" BoldFont="No" />
+                        </Items>
+                    </Category>
+                </Categories>
+            </FontsAndColors>
+        </Category>
+        <Category name="Environment_KeyBindings" Category="{F09035F1-80D2-4312-8EC4-4D354A4BCB4C}" Package="{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}" RegisteredName="Environment_KeyBindings" PackageName="Visual Studio Environment Package">
+            <Version>15.0.0.0</Version>
+            <KeyboardShortcuts>
+                <ShortcutsScheme>Visual C++ 6</ShortcutsScheme>
+                <UserShortcuts>
+                    <Shortcut Command="Edit.DecreaseLineIndent" Scope="Text Editor">Alt+Left Arrow</Shortcut>
+                    <Shortcut Command="Edit.IncreaseLineIndent" Scope="Text Editor">Alt+Right Arrow</Shortcut>
+                    <Shortcut Command="Edit.InsertNextMatchingCaret" Scope="Text Editor">Ctrl+D</Shortcut>
+                    <Shortcut Command="Edit.SubwordDeleteNext" Scope="Text Editor">Ctrl+Del</Shortcut>
+                    <Shortcut Command="Edit.SubwordDeletePrevious" Scope="Text Editor">Ctrl+Bkspce</Shortcut>
+                    <Shortcut Command="Edit.SubwordNext" Scope="Text Editor">Ctrl+Right Arrow</Shortcut>
+                    <Shortcut Command="Edit.SubwordNextExtend" Scope="Text Editor">Ctrl+Shift+Right Arrow</Shortcut>
+                    <Shortcut Command="Edit.SubwordPrevious" Scope="Text Editor">Ctrl+Left Arrow</Shortcut>
+                    <Shortcut Command="Edit.SubwordPreviousExtend" Scope="Text Editor">Ctrl+Shift+Left Arrow</Shortcut>
+                    <Shortcut Command="VisualAssist.OpenFileInSolutionDialog" Scope="Global">Shift+Alt+O</Shortcut>
+                    <RemoveShortcut Command="VisualAssist.OpenFileInSolutionDialog" Scope="Text Editor">Shift+Alt+O</RemoveShortcut>
+                </UserShortcuts>
+            </KeyboardShortcuts>
+        </Category>
+    </Category>
+</UserSettings>
