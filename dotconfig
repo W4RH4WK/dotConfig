@@ -26,13 +26,11 @@ config_bash() {
 }
 
 config_git() {
-    mkdir -p "$DIR/git"
-    copy "$HOME/.gitconfig" "$DIR/git/config"
-    sed '/token = /d' -i "$DIR/git/config"
+    copy "$HOME/.gitconfig" "$DIR/wsl/.gitconfig"
 }
 
 config_vscode() {
-    mkdir -p "$HOME/.config/Code" "$DIR/vscode"
+    mkdir -p "$HOME/.config/Code"
     copy "$HOME/.config/Code/User/settings.json"    "$DIR/vscode/settings.json"
     copy "$HOME/.config/Code/User/keybindings.json" "$DIR/vscode/keybindings.json"
     copy "$HOME/.config/Code/User/snippets"         "$DIR/vscode/snippets"
@@ -47,7 +45,7 @@ config_vscode() {
 }
 
 config_vs-snippets() {
-    mkdir -p "$APPDATA/Roaming/VisualAssist/Autotext"     "$DIR/vs"
+    mkdir -p "$APPDATA/Roaming/VisualAssist/Autotext"
     copy "$APPDATA/Roaming/VisualAssist/Autotext/cpp.tpl" "$DIR/vs/cpp.tpl"
 }
 
