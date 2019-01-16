@@ -1,0 +1,5 @@
+[General]
+canvasState=OPENGL_SUCCESS
+EnableHiDPI=false
+OpenGLRenderer=auto
+EnableSingleApplication=true
