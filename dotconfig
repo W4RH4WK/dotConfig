@@ -7,61 +7,57 @@ readonly DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 readonly APPDATA="/mnt/c/Users/$USER/AppData"
 
 usage() {
-    echo "Usage: $0 <pull | push> <PROGRAM>"
-    echo
-    echo "  PROGRAM:"
-    echo "      bash"
-    echo "      git"
-    echo "      vscode"
-    echo "      vs-snippets"
-    echo
+	echo "Usage: $0 <pull | push> <PROGRAM>"
+	echo
+	echo "  PROGRAM:"
+	echo "    bash"
+	echo "    git"
+	echo "    krita"
+	echo "    vscode"
+	echo "    vs-snippets"
+	echo
 }
 
 config_bash() {
-    mkdir -p "$DIR/bash"
-    copy "$HOME/.bashrc"     "$DIR/bash/bashrc"
-    copy "$HOME/.env.sh"     "$DIR/bash/env.sh"
-    copy "$HOME/.profile"    "$DIR/bash/profile"
-    copy "$HOME/.xsessionrc" "$DIR/bash/xsessionrc"
+	mkdir -p "$DIR/bash"
+	copy "$HOME/.bashrc"     "$DIR/bash/bashrc"
+	copy "$HOME/.env.sh"     "$DIR/bash/env.sh"
+	copy "$HOME/.profile"    "$DIR/bash/profile"
+	copy "$HOME/.xsessionrc" "$DIR/bash/xsessionrc"
 }
 
 config_git() {
-    copy "$HOME/.gitconfig" "$DIR/wsl/.gitconfig"
+	copy "$HOME/.gitconfig" "$DIR/wsl/.gitconfig"
+}
+
+config_krita() {
+	copy "$APPDATA/Local/kritadisplayrc"   "$DIR/krita/kritadisplayrc"
+	copy "$APPDATA/Local/kritarc"          "$DIR/krita/kritarc"
+	copy "$APPDATA/Local/kritashortcutsrc" "$DIR/krita/kritashortcutsrc"
 }
 
 config_vscode() {
-    mkdir -p "$HOME/.config/Code"
-    copy "$HOME/.config/Code/User/settings.json"    "$DIR/vscode/settings.json"
-    copy "$HOME/.config/Code/User/keybindings.json" "$DIR/vscode/keybindings.json"
-    copy "$HOME/.config/Code/User/snippets"         "$DIR/vscode/snippets"
+	mkdir -p "$APPDATA/Roaming/Code/User"
 
-    if [[ "$1" == "pull" ]]; then
-        code --list-extensions > "$DIR/vscode/extensions.txt"
-    elif [[ "$1" == "push" ]]; then
-        while read ext; do
-            code --install-extension "$ext"
-        done < "$DIR/vscode/extensions.txt"
-    fi
+	copy "$APPDATA/Roaming/Code/User/settings.json"    "$DIR/vscode/settings.json"
+	copy "$APPDATA/Roaming/Code/User/keybindings.json" "$DIR/vscode/keybindings.json"
 }
 
 config_vs-snippets() {
-    mkdir -p "$APPDATA/Roaming/VisualAssist/Autotext"
-    copy "$APPDATA/Roaming/VisualAssist/Autotext/cpp.tpl" "$DIR/vs/cpp.tpl"
+	mkdir -p "$APPDATA/Roaming/VisualAssist/Autotext"
+
+	copy "$APPDATA/Roaming/VisualAssist/Autotext/cpp.tpl" "$DIR/vs/cpp.tpl"
 }
 
 if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
-    usage
-    exit 1
+	usage
+	exit 1
 else
-    if [[ "$1" == "pull" ]]; then
-        copy() {
-            cp -r -T "$1" "$2"
-        }
-    else
-        copy() {
-            cp -i -r -T "$2" "$1"
-        }
-    fi
+	if [[ "$1" == "pull" ]]; then
+		copy() { cp -r -T "$1" "$2" }
+	else
+		copy() { cp -i -r -T "$2" "$1" }
+	fi
 fi
 
 "config_$2" "$1"
