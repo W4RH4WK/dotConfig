@@ -10,24 +10,10 @@ usage() {
 	echo "Usage: $0 <pull | push> <PROGRAM>"
 	echo
 	echo "  PROGRAM:"
-	echo "    bash"
-	echo "    git"
 	echo "    krita"
 	echo "    vscode"
 	echo "    vs-snippets"
 	echo
-}
-
-config_bash() {
-	mkdir -p "$DIR/bash"
-	copy "$HOME/.bashrc"     "$DIR/bash/bashrc"
-	copy "$HOME/.env.sh"     "$DIR/bash/env.sh"
-	copy "$HOME/.profile"    "$DIR/bash/profile"
-	copy "$HOME/.xsessionrc" "$DIR/bash/xsessionrc"
-}
-
-config_git() {
-	copy "$HOME/.gitconfig" "$DIR/wsl/.gitconfig"
 }
 
 config_krita() {
@@ -54,13 +40,9 @@ if [[ $# -ne 2 || ( "$1" != "pull" && "$1" != "push" ) ]]; then
 	exit 1
 else
 	if [[ "$1" == "pull" ]]; then
-		copy() {
-			cp -r -T "$1" "$2"
-		}
+		copy() { cp -r -T "$1" "$2"; }
 	else
-		copy() {
-			cp -i -r -T "$2" "$1"
-		}
+		copy() { cp -i -r -T "$2" "$1"; }
 	fi
 fi
 
