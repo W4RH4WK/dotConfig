@@ -1,5 +1,4 @@
 ban.spellright
-brunnerh.insert-unicode
 CoenraadS.bracket-pair-colorizer
 earshinov.simple-alignment
 ecmel.vscode-html-css
