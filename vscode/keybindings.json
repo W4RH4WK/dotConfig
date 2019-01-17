@@ -93,11 +93,6 @@
     },
     // Format Document
     {
-        "key": "ctrl+shift+i",
-        "command": "-editor.action.formatDocument",
-        "when": "isLinux && editorTextFocus && !editorReadonly"
-    },
-    {
         "key": "shift+alt+f",
         "command": "editor.action.formatDocument",
         "when": "isLinux && editorTextFocus && !editorReadonly"
