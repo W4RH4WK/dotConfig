@@ -44,10 +44,6 @@
         "latex"
     ],
 
-    // Open in Editor
-    "alt-editor.binary": "x-terminal-emulator",
-    "alt-editor.args": "-e nvim '+call ProjectRootCD()|call cursor({line},{column})|norm zz' '{filename}'",
-
     // HTML / CSS / JavaScript
     "html.autoClosingTags": false,
     "javascript.autoClosingTags": false,
