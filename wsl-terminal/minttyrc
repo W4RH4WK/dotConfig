@@ -1,0 +1,17 @@
+BoldAsFont=no
+FontHeight=10
+Font=Hack
+Scrollbar=none
+Term=xterm-256color
+CursorType=block
+Locale=en_US
+Charset=UTF-8
+BellType=0
+BellTaskbar=no
+Printer=*
+Language=@
+ThemeFile=material-hyper.minttyrc
+Transparency=low
+CursorBlinks=no
+FontSmoothing=default
+CopyAsRTF=no
