@@ -25,6 +25,7 @@
 
     // Git
     "git.autofetch": false,
+    "git.ignoreMissingGitWarning": true,
 
     // Typescript
     "typescript.check.npmIsInstalled": false,
