@@ -14,6 +14,7 @@ shopt -u dotglob
 # ------------------------------------------------------------ Editor
 alias vim="nvim"
 alias view="nvim -R"
+alias vimdiff="vimdiff.nvim"
 export EDITOR="/usr/bin/nvim"
 export MANPAGER="/usr/bin/nvim -c 'set filetype=man' -"
 
@@ -45,7 +46,7 @@ __set_ps1() {
 	local BCyan='\[\e[1;36m\]'
 	local BWhite='\[\e[1;37m\]'
 
-	PS1="$BBlue\u@\h \w$BYellow\$(__git_ps1)$BRed\$(__ret_ps1 \$?)$BGreen > $NC"
+	PS1="$BBlue\w$BYellow\$(__git_ps1)$BRed\$(__ret_ps1 \$?)$BGreen > $NC"
 	PS2="$BGreen> $NC"
 }
 
@@ -93,6 +94,8 @@ fi
 if [[ -f /etc/wsl.conf ]]; then
 	# Permissions
 	umask 0022
+
+	export DISPLAY=localhost:0
 
 	# SSH Agent
 	if [[ -z "$(pgrep ssh-agent)" ]]; then
