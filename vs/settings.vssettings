@@ -67,8 +67,10 @@
                     <Shortcut Command="Edit.SubwordNextExtend" Scope="Text Editor">Ctrl+Shift+Right Arrow</Shortcut>
                     <Shortcut Command="Edit.SubwordPrevious" Scope="Text Editor">Ctrl+Left Arrow</Shortcut>
                     <Shortcut Command="Edit.SubwordPreviousExtend" Scope="Text Editor">Ctrl+Shift+Left Arrow</Shortcut>
-                    <Shortcut Command="VisualAssist.OpenFileInSolutionDialog" Scope="Global">Shift+Alt+O</Shortcut>
-                    <RemoveShortcut Command="VisualAssist.OpenFileInSolutionDialog" Scope="Text Editor">Shift+Alt+O</RemoveShortcut>
+                    <Shortcut Command="Edit.LineOpenAbove" Scope="Text Editor">Ctrl+Shift+Enter</Shortcut>
+                    <Shortcut Command="Edit.LineOpenBelow" Scope="Text Editor">Ctrl+Enter</Shortcut>
+                    <RemoveShortcut Command="Edit.LineOpenBelow" Scope="Global">Ctrl+Enter</RemoveShortcut>
+                    <RemoveShortcut Command="Edit.LineOpenAbove" Scope="Global">Ctrl+Shift+Enter</RemoveShortcut>
                 </UserShortcuts>
             </KeyboardShortcuts>
         </Category>
