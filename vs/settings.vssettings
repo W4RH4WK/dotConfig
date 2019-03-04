@@ -71,6 +71,7 @@
                     <Shortcut Command="Edit.LineOpenBelow" Scope="Text Editor">Ctrl+Enter</Shortcut>
                     <RemoveShortcut Command="Edit.LineOpenBelow" Scope="Global">Ctrl+Enter</RemoveShortcut>
                     <RemoveShortcut Command="Edit.LineOpenAbove" Scope="Global">Ctrl+Shift+Enter</RemoveShortcut>
+                    <Shortcut Command="Tools.ReflowCommentatCursor" Scope="Text Editor">Alt+Q</Shortcut>
                 </UserShortcuts>
             </KeyboardShortcuts>
         </Category>
