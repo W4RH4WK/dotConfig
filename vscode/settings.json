@@ -3,13 +3,17 @@
     "debug.toolBarLocation": "docked",
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
     "editor.renderIndentGuides": false,
-    "editor.renderWhitespace": "boundary",
+    "editor.renderWhitespace": "none",
     "editor.rulers": [79],
     "editor.smoothScrolling": true,
     "editor.wordWrap": "on",
     "window.title": "${rootName}${separator}${activeEditorShort}",
     "window.zoomLevel": 0,
+    "workbench.activityBar.visible": false,
+    "workbench.iconTheme": "vscode-great-icons",
+    "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
 
     // Handling
@@ -25,7 +29,7 @@
 
     // Git
     "git.autofetch": false,
-    "git.ignoreMissingGitWarning": true,
+    "git.decorations.enabled": false,
 
     // Typescript
     "typescript.check.npmIsInstalled": false,
