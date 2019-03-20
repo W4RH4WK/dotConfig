@@ -1,35 +1,35 @@
 [user]
-    name = Alex Hirsch
-    email = w4rh4wk@bluephoenix.at
+	name = Alex Hirsch
+	email = w4rh4wk@bluephoenix.at
 [github]
-    user = w4rh4wk
+	user = w4rh4wk
 [alias]
-    c = checkout
-    co = commit
-    d = diff
-    ds = diff --staged
-    l = log --all --graph --oneline --decorate
-    s = status --short --branch
-    g = grep --break --heading --line-number
-    ff = merge --ff-only
-    mnc = merge --no-ff --no-commit
-    puff = pull --ff-only
-    purr = pull --rebase
-    ignore = update-index --assume-unchanged
-    unignore = update-index --no-assume-unchanged
-    ignored = !git ls-files -v | grep '^[[:lower:]]'
+	c = checkout
+	co = commit
+	d = diff
+	ds = diff --staged
+	l = log --all --graph --oneline --decorate
+	s = status --short --branch
+	ff = merge --ff-only
+	mnc = merge --no-ff --no-commit
+	puff = pull --ff-only
+	purr = pull --rebase
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep '^[[:lower:]]'
 [color]
-    ui = true
+	ui = true
 [core]
-    editor = nvim
-    autocrlf = false
-    pager = less -+FX
+	editor = nvim
+	autocrlf = false
+	pager = less -+FX
 [push]
-    default = simple
+	default = simple
 [diff]
-    tool = vimdiff
+	tool = nvim
+[difftool "nvim"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [merge]
-    tool = vimdiff
-    conflictstyle = diff3
-[mergetool "vimdiff"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	tool = nvim
+[mergetool "nvim"]
+	cmd = nvim -d -c '$wincmd w' -c 'wincmd J' \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
