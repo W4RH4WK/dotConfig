@@ -1,9 +1,9 @@
+ban.spellright
 CoenraadS.bracket-pair-colorizer
 DotJoshJohnson.xml
-EditorConfig.EditorConfig
-ban.spellright
 earshinov.simple-alignment
 ecmel.vscode-html-css
+EditorConfig.EditorConfig
 emmanuelbeziat.vscode-great-icons
 jtanx.ctagsx
 ms-python.python
