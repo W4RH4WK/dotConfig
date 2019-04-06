@@ -61,17 +61,15 @@
                     <Shortcut Command="Edit.DecreaseLineIndent" Scope="Text Editor">Alt+Left Arrow</Shortcut>
                     <Shortcut Command="Edit.IncreaseLineIndent" Scope="Text Editor">Alt+Right Arrow</Shortcut>
                     <Shortcut Command="Edit.InsertNextMatchingCaret" Scope="Text Editor">Ctrl+D</Shortcut>
-                    <Shortcut Command="Edit.SubwordDeleteNext" Scope="Text Editor">Ctrl+Del</Shortcut>
-                    <Shortcut Command="Edit.SubwordDeletePrevious" Scope="Text Editor">Ctrl+Bkspce</Shortcut>
-                    <Shortcut Command="Edit.SubwordNext" Scope="Text Editor">Ctrl+Right Arrow</Shortcut>
-                    <Shortcut Command="Edit.SubwordNextExtend" Scope="Text Editor">Ctrl+Shift+Right Arrow</Shortcut>
-                    <Shortcut Command="Edit.SubwordPrevious" Scope="Text Editor">Ctrl+Left Arrow</Shortcut>
-                    <Shortcut Command="Edit.SubwordPreviousExtend" Scope="Text Editor">Ctrl+Shift+Left Arrow</Shortcut>
-                    <Shortcut Command="Edit.LineOpenAbove" Scope="Text Editor">Ctrl+Shift+Enter</Shortcut>
-                    <Shortcut Command="Edit.LineOpenBelow" Scope="Text Editor">Ctrl+Enter</Shortcut>
-                    <RemoveShortcut Command="Edit.LineOpenBelow" Scope="Global">Ctrl+Enter</RemoveShortcut>
                     <RemoveShortcut Command="Edit.LineOpenAbove" Scope="Global">Ctrl+Shift+Enter</RemoveShortcut>
+                    <Shortcut Command="Edit.LineOpenAbove" Scope="Text Editor">Ctrl+Shift+Enter</Shortcut>
+                    <RemoveShortcut Command="Edit.LineOpenBelow" Scope="Global">Ctrl+Enter</RemoveShortcut>
+                    <Shortcut Command="Edit.LineOpenBelow" Scope="Text Editor">Ctrl+Enter</Shortcut>
                     <Shortcut Command="Tools.ReflowCommentatCursor" Scope="Text Editor">Alt+Q</Shortcut>
+                    <RemoveShortcut Command="VisualAssist.OpenFileInSolutionDialog" Scope="Text Editor">Shift+Alt+O</RemoveShortcut>
+                    <Shortcut Command="VisualAssist.OpenFileInSolutionDialog" Scope="Global">Shift+Alt+O</Shortcut>
+                    <RemoveShortcut Command="VisualAssist.FindSymbolDialog" Scope="Text Editor">Shift+Alt+S</RemoveShortcut>
+                    <Shortcut Command="VisualAssist.FindSymbolDialog" Scope="Global">Shift+Alt+S</Shortcut>
                 </UserShortcuts>
             </KeyboardShortcuts>
         </Category>
