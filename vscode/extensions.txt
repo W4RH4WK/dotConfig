@@ -1,13 +1,11 @@
 ban.spellright
 CoenraadS.bracket-pair-colorizer
+DavidAnson.vscode-markdownlint
 DotJoshJohnson.xml
 earshinov.simple-alignment
 ecmel.vscode-html-css
 EditorConfig.EditorConfig
 emmanuelbeziat.vscode-great-icons
-jtanx.ctagsx
-ms-python.python
-ms-vscode.cpptools
 oijaz.unicode-latex
 shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
