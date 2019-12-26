@@ -1,7 +1,5 @@
 ban.spellright
 CoenraadS.bracket-pair-colorizer
-DavidAnson.vscode-markdownlint
-DotJoshJohnson.xml
 earshinov.simple-alignment
 ecmel.vscode-html-css
 EditorConfig.EditorConfig
