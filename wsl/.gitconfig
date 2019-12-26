@@ -14,6 +14,7 @@
 	mnc = merge --no-ff --no-commit
 	puff = pull --ff-only
 	purr = pull --rebase
+	pushf = push --force-with-lease
 	ignore = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep '^[[:lower:]]'
