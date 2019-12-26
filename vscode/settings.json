@@ -3,27 +3,24 @@
     "debug.toolBarLocation": "docked",
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
-    "editor.minimap.renderCharacters": false,
     "editor.renderIndentGuides": false,
-    "editor.renderWhitespace": "none",
-    "editor.rulers": [],
+    "editor.renderWhitespace": "selection",
     "editor.smoothScrolling": true,
     "editor.wordWrap": "on",
     "window.title": "${rootName}${separator}${activeEditorShort}",
     "window.zoomLevel": 0,
-    "workbench.activityBar.visible": false,
     "workbench.iconTheme": "vscode-great-icons",
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
 
     // Handling
-    "editor.autoIndent": false,
     "editor.quickSuggestions": {
         "other": false,
         "comments": false,
         "strings": false
     },
     "editor.tabCompletion": "onlySnippets",
+    "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": true,
     "files.insertFinalNewline": true,
     "telemetry.enableTelemetry": false,
@@ -59,6 +56,6 @@
 
     // Go
     "[go]": {
-        "editor.formatOnSave": false
+        "editor.formatOnSave": false,
     }
 }
