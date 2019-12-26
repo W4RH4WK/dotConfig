@@ -12,6 +12,7 @@ shopt -s globstar
 shopt -u dotglob
 
 # ------------------------------------------------------------ Editor
+alias ts="tig status"
 alias vim="nvim"
 alias view="nvim -R"
 alias vimdiff="vimdiff.nvim"
