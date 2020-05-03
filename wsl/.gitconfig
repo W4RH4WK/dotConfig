@@ -26,6 +26,8 @@
 	pager = less -+FX
 [push]
 	default = simple
+[rebase]
+	autosquash = true
 [diff]
 	tool = nvim
 [difftool "nvim"]
