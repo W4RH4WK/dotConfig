@@ -1,10 +1,9 @@
-ban.spellright
 CoenraadS.bracket-pair-colorizer
 earshinov.simple-alignment
-ecmel.vscode-html-css
 EditorConfig.EditorConfig
 emmanuelbeziat.vscode-great-icons
 oijaz.unicode-latex
 shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
 stkb.rewrap
+streetsidesoftware.code-spell-checker

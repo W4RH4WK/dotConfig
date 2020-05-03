@@ -2,9 +2,9 @@
     // View
     "debug.toolBarLocation": "docked",
     "editor.cursorBlinking": "solid",
-    "editor.minimap.enabled": false,
+    "editor.minimap.size": "fit",
+    "editor.minimap.maxColumn": 80,
     "editor.renderIndentGuides": false,
-    "editor.renderWhitespace": "selection",
     "editor.smoothScrolling": true,
     "editor.wordWrap": "on",
     "window.title": "${rootName}${separator}${activeEditorShort}",
@@ -22,6 +22,7 @@
     "editor.tabCompletion": "onlySnippets",
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": true,
+    "files.eol": "\n",
     "files.insertFinalNewline": true,
     "telemetry.enableTelemetry": false,
 
@@ -37,16 +38,6 @@
     // Bracket Pair Colorizer
     "bracketPairColorizer.showHorizontalScopeLine": false,
 
-    // Spell Right
-    "spellright.groupDictionaries": false,
-    "spellright.language": [
-        "en-US"
-    ],
-    "spellright.documentTypes": [
-        "markdown",
-        "latex"
-    ],
-
     // HTML / CSS / JavaScript
     "html.autoClosingTags": false,
     "javascript.autoClosingTags": false,
@@ -56,6 +47,6 @@
 
     // Go
     "[go]": {
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": false
     }
 }
