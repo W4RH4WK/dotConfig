@@ -4,7 +4,6 @@
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
 shopt -s histappend
-export PROMPT_COMMAND="history -a"
 
 # ------------------------------------------------------------ Basics
 shopt -s checkwinsize
@@ -21,6 +20,7 @@ export MANPAGER="/usr/bin/nvim -c 'set filetype=man' -"
 
 # ------------------------------------------------------------ Prompt
 PROMPT_DIRTRIM=2
+PROMPT_COMMAND='history -a; echo -en "\033]0;$PWD\a"'
 
 __ret_ps1() {
 	if [[ $1 != 0 ]]; then
