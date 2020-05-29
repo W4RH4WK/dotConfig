@@ -25,6 +25,7 @@
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "telemetry.enableTelemetry": false,
+    "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
 
     // Git
     "git.autofetch": false,
@@ -41,9 +42,6 @@
     // HTML / CSS / JavaScript
     "html.autoClosingTags": false,
     "javascript.autoClosingTags": false,
-
-    // C / C++
-    "C_Cpp.default.cppStandard": "c++17",
 
     // Go
     "[go]": {
