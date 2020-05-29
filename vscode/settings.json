@@ -26,6 +26,8 @@
     "files.insertFinalNewline": true,
     "telemetry.enableTelemetry": false,
     "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
 
     // Git
     "git.autofetch": false,
