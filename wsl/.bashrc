@@ -11,10 +11,8 @@ shopt -s globstar
 shopt -u dotglob
 
 # ------------------------------------------------------------ Editor
-alias ts="tig status"
 alias vim="nvim"
 alias view="nvim -R"
-alias vimdiff="vimdiff.nvim"
 export EDITOR="/usr/bin/nvim"
 export MANPAGER="/usr/bin/nvim -c 'set filetype=man' -"
 
@@ -54,10 +52,6 @@ __set_ps1() {
 __set_ps1
 
 # ------------------------------------------------------------ Alias
-open() {
-	(xdg-open "$@" &> /dev/null &)
-}
-
 tssh() {
 	ssh -t "$@" tmux new-session -A -s 0
 }
@@ -74,7 +68,15 @@ alias ag="ag --smart-case --follow"
 alias gdb="gdb -q"
 alias l="ls --classify --color=force --group-directories-first --human-readable -l"
 alias ll="l --all"
+alias open="cmd.exe /C start"
 alias tree="tree -F --dirsfirst"
+alias ts="tig status"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../.."
+alias ......="cd ../../../.."
 
 # ------------------------------------------------------------ Completion
 bind 'set show-all-if-ambiguous on'
