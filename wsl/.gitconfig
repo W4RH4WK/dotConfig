@@ -36,3 +36,6 @@
 	tool = nvim
 [mergetool "nvim"]
 	cmd = nvim -d -c '$wincmd w' -c 'wincmd J' \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[tig "bind"]
+	main = = !git commit --fixup=%(commit)
+	main = <Ctrl-R> !git rebase --autosquash -i %(commit)
