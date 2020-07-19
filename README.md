@@ -18,6 +18,7 @@
 - Allow HTML Temp
 - ImportExportTools
 - Manually sort folders
+- External Editor (`wt.exe C:\Users\w4rh4wk\bin\wslvim.bat`)
 
 ## Ubuntu (VMWare)
 
