@@ -1,0 +1,12 @@
+Text: 239 239 241
+Background: 24 24 27
+Links: 46 158 253
+
+browser.anchor_color;#2e9efd
+browser.display.background_color;#18181b
+browser.display.document_color_use;1
+browser.display.foreground_color;#efeff1
+browser.visited_color;#2e9efd
+mail.citation_color;#efeff1
+msgcompose.background_color;#181a1b
+msgcompose.text_color;#d8d6d0
