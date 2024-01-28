@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Fixup! staged changes for '$sha'",
+    "target": "revision",
+    "action": {
+      "type": "process",
+      "path": "$git",
+      "args": "commit --fixup $SHA",
+      "showOutput": false,
+      "waitForExit": true
+    }
+  },
+  {
+    "name": "Merge HEAD into $shortname",
+    "target": "ref",
+    "refTargets": [
+      "localbranch"
+    ],
+    "action": {
+      "type": "process",
+      "path": "$git",
+      "args": "fetch . HEAD:$name",
+      "showOutput": false,
+      "waitForExit": true
+    }
+  }
+]

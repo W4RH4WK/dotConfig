@@ -3,6 +3,13 @@
 	email = w4rh4wk@bluephoenix.at
 [github]
 	user = w4rh4wk
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	#pager = less -+FX
+[color]
+	ui = true
 [alias]
 	c = checkout
 	co = commit
@@ -12,22 +19,14 @@
 	s = status --short --branch
 	ff = merge --ff-only
 	mnc = merge --no-ff --no-commit
-	puff = pull --ff-only
+	pushu = push -u origin HEAD
 	purr = pull --rebase
 	pushf = push --force-with-lease
-	ignore = update-index --assume-unchanged
-	unignore = update-index --no-assume-unchanged
-	ignored = !git ls-files -v | grep '^[[:lower:]]'
-[color]
-	ui = true
-[core]
-	editor = nvim
-	autocrlf = false
-	pager = less -+FX
-[push]
-	default = simple
-[rebase]
-	autosquash = true
+	ignore = update-index --skip-worktree
+	unignore = update-index --skip-worktree
+	ignored = !git ls-files -v | grep ^S
+[pull]
+	ff = only
 [diff]
 	tool = nvim
 [difftool "nvim"]
@@ -36,6 +35,10 @@
 	tool = nvim
 [mergetool "nvim"]
 	cmd = nvim -d -c '$wincmd w' -c 'wincmd J' \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[rebase]
+	autosquash = true
 [tig "bind"]
 	main = = !git commit --fixup=%(commit)
 	main = <Ctrl-R> !git rebase --autosquash -i %(commit)
+[url "git@github.com:"]
+	insteadOf = https://github.com/
