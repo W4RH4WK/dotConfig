@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Seperator</Title>
+			<Shortcut>sep</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[////////////////////////////////////////////////////////////$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>include &lt;&gt;</Title>
+			<Shortcut>in</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[#include <$end$>]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>include ""</Title>
+			<Shortcut>inc</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[#include "$end$"]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>template</Title>
+			<Shortcut>tt</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[template <typename $T$$end$>]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>T</ID>
+					<Default>T</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>if</Title>
+			<Shortcut>if</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[if ($condition$) {
+	$selected$$end$
+}]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>condition</ID>
+					<Default>condition</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>if else</Title>
+			<Shortcut>ife</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[if ($condition$) {
+	$selected$$end$
+} else {
+
+}]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>condition</ID>
+					<Default>condition</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>for</Title>
+			<Shortcut>for</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[for (int $index$ = 0; $index$ < $size$; ++$index$) {
+	$selected$$end$
+}]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>index</ID>
+					<Default>i</Default>
+				</Literal>
+				<Literal>
+					<ID>size</ID>
+					<Default>size</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>foreach</Title>
+			<Shortcut>fore</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[for (const auto& $element$ : $container$) {
+	$selected$$end$
+}]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>element</ID>
+					<Default>element</Default>
+				</Literal>
+				<Literal>
+					<ID>container</ID>
+					<Default>container</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>dynamic_cast</Title>
+			<Shortcut>dyn</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[if (auto $name$ = dynamic_cast<$type$*>($expr$)) {
+	$selected$$end$
+}]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<Default>name</Default>
+				</Literal>
+				<Literal>
+					<ID>type</ID>
+					<Default>type</Default>
+				</Literal>
+				<Literal>
+					<ID>expr</ID>
+					<Default>expr</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>namespace</Title>
+			<Shortcut>ns</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[namespace $name$ {
+
+$selected$$end$
+
+} // namespace $name$]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<Default>name</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Copy/Move Semantics</Title>
+			<Shortcut>sema</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[$name$(const $name$&) = delete;
+	$name$& operator=(const $name$&) = delete;
+	$name$($name$&&) noexcept = delete;
+	$name$& operator=($name$&&) noexcept = delete;]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<Default>name</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

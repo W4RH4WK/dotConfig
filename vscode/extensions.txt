@@ -1,9 +1,15 @@
-CoenraadS.bracket-pair-colorizer
+castwide.solargraph
 earshinov.simple-alignment
 EditorConfig.EditorConfig
 emmanuelbeziat.vscode-great-icons
+ms-python.python
+ms-vscode.cpptools
 oijaz.unicode-latex
-shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
 stkb.rewrap
 streetsidesoftware.code-spell-checker
+streetsidesoftware.code-spell-checker-german
+twxs.cmake
+W4RH4WK.fruits-theme
+wingrunr21.vscode-ruby
+xaver.clang-format

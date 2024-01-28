@@ -1,4 +1,4 @@
-#NoTrayIcon
+﻿#NoTrayIcon
 
 ;SetKeyDelay, 200
 
@@ -8,6 +8,7 @@
 #s::return
 #f::return
 #h::return
+#c::return
 #m::return
 #^!+w::return
 #^!+t::return
@@ -30,6 +31,12 @@
 #^!+e::send #e
 #^!+r::send #r
 
+; Emojis
+#j::Send 👍
+#k::Send 🙄
+;#Down::Send 🤞
+;#Right::Send 
+
 ; Alternative Media keys
 ;#PgDn::Send {Media_Next}
 ;#PgUp::Send {Media_Prev}
@@ -38,4 +45,7 @@
 ; Show / Hide Titlebar
 #NumpadSub::
 	Winset, Style, ^0xC00000, A
+	;Winset, Style, ^0x40000, A
+	;WinMove, A,, 50, 50, 1000, 1000
+	;ControlMove , 50, 50, 1000, 1000, A
 	return

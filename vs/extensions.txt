@@ -1,8 +1,6 @@
-ClangFormat
-Comment Reflower
-EditorConfig Language Service
-Structure Visualizer
-Subword Navigation
-Toggle Comment
-Trailing Whitespace Visualizer
-Visual Assist
+Visual-Studio-Translator
+Visual Studio Spell Checker
+Clang Power Tools (disabled)
+Color.Attribute
+Output enhancer
+Rewrap
