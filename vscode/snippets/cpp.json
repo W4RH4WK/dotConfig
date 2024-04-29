@@ -1,0 +1,130 @@
+{
+	"////": {
+		"prefix": "//-",
+		"body": "////////////////////////////////////////////////////////////"
+	},
+	"Include": {
+		"prefix": "in",
+		"body": "#include <${1:iostream}>"
+	},
+	"Include Relative": {
+		"prefix": "inc",
+		"body": "#include \"${1:${TM_FILENAME_BASE}.hpp}\""
+	},
+	"Namespace": {
+		"prefix": "ns",
+		"body": [
+			"namespace ${1:name} {",
+			"",
+			"$0",
+			"",
+			"} // namespace $1"
+		]
+	},
+	"Enum": {
+		"prefix": "enum",
+		"body": [
+			"enum class ${1:name} {",
+			"\t$0",
+			"};"
+		]
+	},
+	"if": {
+		"prefix": "if",
+		"body": [
+			"if (${1:condition}) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"else": {
+		"prefix": "else",
+		"body": [
+			"else {",
+			"\t$0",
+			"}"
+		]
+	},
+	"for": {
+		"prefix": "for",
+		"body": [
+			"for (auto ${2:i} = 0; $2 < ${1:size}; ++$2) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"forr": {
+		"prefix": "forr",
+		"body": [
+			"for (auto ${2:i} = ${1:size} - 1; $2 >= 0; --$2) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"fore": {
+		"prefix": "fore",
+		"body": [
+			"for (${3:const auto&} ${1:element} : ${2:collection}) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"switch": {
+		"prefix": "sw",
+		"body": [
+			"switch (${1:name}) {",
+			"case ${2:name}:",
+			"\t$0",
+			"\tbreak;",
+			"default:",
+			"}"
+		]
+	},
+	"try": {
+		"prefix": "try",
+		"body": [
+			"try {",
+			"\t$0",
+			"} catch (const std::exception& ex) {",
+			"}"
+		]
+	},
+	"Dynamic Cast": {
+		"prefix": "dyn",
+		"body": [
+			"if (auto ${3:name} = dynamic_cast<${2:type}>(${1:name}) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"Full Class": {
+		"prefix": "cls",
+		"body": [
+			"class ${1:name} {",
+			"  public:",
+			"\t$1();",
+			"",
+			"\t$1(const $1&) = delete;",
+			"\t$1& operator=(const $1&) = delete;",
+			"",
+			"\t$1(const $1&&) noexcept = delete;",
+			"\t$1& operator=(const $1&&) noexcept = delete;",
+			"",
+			"\t~$1() noexcept;",
+			"",
+			"  private:",
+			"$0",
+			"};"
+		]
+	},
+	"X-Macro define": {
+		"prefix": "xdef",
+		"body": [
+			"#ifndef ${1:name}",
+			"#define $1(${2:_args})",
+			"#endif",
+			"",
+			"$0"
+		]
+	}
+}

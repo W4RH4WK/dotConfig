@@ -186,6 +186,35 @@ $selected$$end$
 	</CodeSnippet>
 	<CodeSnippet Format="1.0.0">
 		<Header>
+			<Title>Class</Title>
+			<Shortcut>cls</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[class $name$ {
+  public:
+	$name$() = default;
+	~$name$() noexcept = default;
+
+	$name$(const $name$&) = delete;
+	$name$& operator=(const $name$&) = delete;
+	$name$($name$&&) noexcept = delete;
+	$name$& operator=($name$&&) noexcept = delete;
+
+  private:
+
+};]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<Default>name</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
 			<Title>Copy/Move Semantics</Title>
 			<Shortcut>sema</Shortcut>
 		</Header>
