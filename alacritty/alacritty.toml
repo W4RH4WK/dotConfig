@@ -1,0 +1,39 @@
+[shell]
+program = "wsl"
+
+[window]
+dimensions = { columns = 80, lines = 24 }
+
+[selection]
+save_to_clipboard = true
+
+[font]
+normal = { family = "Cascadia Code NF", style = "SemiLight" }
+bold = { style = "SemiLight" }
+size = 12
+offset = { y = 1 }
+
+[colors]
+primary = { foreground = "#FFFFFF", background = "#000000" }
+cursor = { cursor = "#777777" }
+draw_bold_text_with_bright_colors = true
+
+[colors.normal]
+black = "#2d2a2e"
+blue = "#396fe2"
+cyan = "#2ddafd"
+green = "#9ece58"
+magenta = "#bb80b3"
+red = "#e54b4b"
+white = "#d0d0d0"
+yellow = "#faed70"
+
+[colors.bright]
+black = "#403e41"
+blue = "#82aaff"
+cyan = "#89ddff"
+green = "#c3e88d"
+magenta = "#c792ea"
+red = "#ff5370"
+white = "#ffffff"
+yellow = "#ffcb6b"
