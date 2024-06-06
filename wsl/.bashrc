@@ -16,9 +16,6 @@ HISTSIZE=10000
 shopt -s histappend
 
 # ------------------------------------------------------------ Prompt
-PROMPT_DIRTRIM=2
-PROMPT_COMMAND='echo -en "\033]0;$PWD\a"'
-
 __ret_ps1() {
 	if [[ $1 != 0 ]]; then
 		echo -n " $1"
@@ -28,6 +25,12 @@ __ret_ps1() {
 __jobs_ps1() {
 	if [[ $1 -gt 0 ]]; then
 		echo -n '•'
+	fi
+}
+
+__hostname_ps1() {
+	if [[ -n "$SSH_TTY" ]]; then
+		echo -n "$HOSTNAME "
 	fi
 }
 
@@ -50,11 +53,13 @@ __set_ps1() {
 	local BCyan='\[\e[1;36m\]'
 	local BWhite='\[\e[1;37m\]'
 
-	PS1="$BBlue\w$BYellow\$(__git_ps1)$BRed\$(__ret_ps1 \$?)$BGreen \$(__jobs_ps1 \j)> $NC"
+	PS1="$Blue\$(__hostname_ps1)$BBlue\w$BYellow\$(__git_ps1)$BRed\$(__ret_ps1 \$?)$BGreen \$(__jobs_ps1 \j)> $NC"
 	PS2="$BGreen> $NC"
 }
 
 __set_ps1
+PROMPT_DIRTRIM=2
+PROMPT_COMMAND='echo -en "\033]0;$(__hostname_ps1) $PWD\a"'
 
 # ------------------------------------------------------------ Man Pager
 export MANPAGER="less -s -M +Gg"
@@ -147,12 +152,12 @@ mccd() {
 # bind '"\eo":"mccd\C-m"'
 
 # ------------------------------------------------------------ SSH Agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/openssh_agent"
+
 if [[ -z "$(pgrep ssh-agent 2>/dev/null)" ]]; then
-	rm -rf /tmp/ssh-*
-	eval $(ssh-agent -s) > /dev/null
+	eval $(ssh-agent -a "$SSH_AUTH_SOCK" -s) > /dev/null
 else
 	export SSH_AGENT_PID=$(pgrep ssh-agent)
-	export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name agent.*)
 fi
 
 # ------------------------------------------------------------ WSL Specific
