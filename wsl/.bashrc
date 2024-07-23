@@ -97,8 +97,8 @@ tosh() {
 alias l="ls -l --classify --color=force --group-directories-first --human-readable"
 alias ll="l --all"
 alias tree="tree -F --dirsfirst"
-alias rgg="rg --hidden --no-ignore"
-alias fdd="fd --hidden --no-ignore"
+alias rg="rg --smart-case --hidden --no-ignore"
+alias fd="fd --hidden --no-ignore"
 alias lg="lazygit"
 alias ts="tig status"
 alias gdb="gdb --quiet"
@@ -162,7 +162,7 @@ fi
 
 # ------------------------------------------------------------ WSL Specific
 if [[ -f /etc/wsl.conf ]]; then
-	export DISPLAY=localhost:0
+	export DISPLAY=$(ip route list default | awk '{print $3}'):0
 fi
 
 # ------------------------------------------------------------ PATH
