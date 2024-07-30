@@ -4,3 +4,4 @@ Clang Power Tools (disabled)
 Color.Attribute
 Output enhancer
 Rewrap
+Smart Command Line Arguments VS2022
