@@ -35,69 +35,12 @@
 	</CodeSnippet>
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>template</Title>
-			<Shortcut>tt</Shortcut>
-		</Header>
-		<Snippet>
-			<Code Language="CPP">
-				<![CDATA[template <typename $T$$end$>]]>
-			</Code>
-			<Declarations>
-				<Literal>
-					<ID>T</ID>
-					<Default>T</Default>
-				</Literal>
-			</Declarations>
-		</Snippet>
-	</CodeSnippet>
-	<CodeSnippet Format="1.0.0">
-		<Header>
-			<Title>if</Title>
-			<Shortcut>if</Shortcut>
-		</Header>
-		<Snippet>
-			<Code Language="CPP">
-				<![CDATA[if ($condition$) {
-	$selected$$end$
-}]]>
-			</Code>
-			<Declarations>
-				<Literal>
-					<ID>condition</ID>
-					<Default>condition</Default>
-				</Literal>
-			</Declarations>
-		</Snippet>
-	</CodeSnippet>
-	<CodeSnippet Format="1.0.0">
-		<Header>
-			<Title>if else</Title>
-			<Shortcut>ife</Shortcut>
-		</Header>
-		<Snippet>
-			<Code Language="CPP">
-				<![CDATA[if ($condition$) {
-	$selected$$end$
-} else {
-
-}]]>
-			</Code>
-			<Declarations>
-				<Literal>
-					<ID>condition</ID>
-					<Default>condition</Default>
-				</Literal>
-			</Declarations>
-		</Snippet>
-	</CodeSnippet>
-	<CodeSnippet Format="1.0.0">
-		<Header>
 			<Title>for</Title>
 			<Shortcut>for</Shortcut>
 		</Header>
 		<Snippet>
 			<Code Language="CPP">
-				<![CDATA[for (int $index$ = 0; $index$ < $size$; ++$index$) {
+				<![CDATA[for (usize $index$ = 0; $index$ < $size$; $index$++) {
 	$selected$$end$
 }]]>
 			</Code>
@@ -109,6 +52,57 @@
 				<Literal>
 					<ID>size</ID>
 					<Default>size</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>for reverse</Title>
+			<Shortcut>forr</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[for (usize $index$ = $size$; $index$-- > 0;) {
+	$selected$$end$
+}]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>index</ID>
+					<Default>i</Default>
+				</Literal>
+				<Literal>
+					<ID>size</ID>
+					<Default>size</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>for enumerated</Title>
+			<Shortcut>fori</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[for (usize $index$ = 0; $index$ < $container$.size(); $index$++) {
+	const auto& $elem$ = $container$[$index$];
+	$selected$$end$
+}]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>index</ID>
+					<Default>i</Default>
+				</Literal>
+				<Literal>
+					<ID>container</ID>
+					<Default>container</Default>
+				</Literal>
+				<Literal>
+					<ID>elem</ID>
+					<Default>elem</Default>
 				</Literal>
 			</Declarations>
 		</Snippet>
